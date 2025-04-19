@@ -20,7 +20,12 @@ const Nav = ({ activePage }: { activePage?: string }) => {
       >
         About
       </div>
-      <div className={cn(defaultStyle)}>Portfolio</div>
+      <div
+        onClick={() => handleNavigation('/portfolio')}
+        className={cn(defaultStyle)}
+      >
+        Portfolio
+      </div>
       <div className={cn(defaultStyle)}>Advisory Board</div>
       <div
         onClick={() => handleNavigation('/relationships')}
