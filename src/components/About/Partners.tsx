@@ -2,7 +2,7 @@ import React from 'react';
 
 const Partners = () => {
   return (
-    <div className='flex flex-col w-[1080px] my-10'>
+    <div className='flex flex-col w-[1080px] my-5'>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>Partners.</h2>
       <div className='flex gap-4 flex-wrap'>
         {[...Array(7)].map((_, index) => (

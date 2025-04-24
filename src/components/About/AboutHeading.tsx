@@ -1,8 +1,16 @@
 import React from 'react';
+import Divider from '../Divider';
 
-const AboutHeading = () => {
+const AboutHeading = ({ ref }: { ref: React.RefObject<HTMLDivElement> }) => {
   const [activeSection, setActiveSection] = React.useState('About.');
-  const sections = ['About.', 'Partners.', 'Team.'];
+  const sections = ['About.', 'Team.'];
+
+  const handleScrollToSection = (section: string) => {
+    setActiveSection(section);
+    if (section === 'Team.' && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className='flex flex-col w-[1080px]'>
@@ -11,7 +19,7 @@ const AboutHeading = () => {
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
-              onClick={() => setActiveSection(section)}
+              onClick={() => handleScrollToSection(section)}
               className={`border-l-6 h-[25px] flex items-center border-solid pl-4 cursor-pointer text-lg ${
                 activeSection === section
                   ? 'border-red-600 text-red-600 font-semibold'
@@ -29,7 +37,7 @@ const AboutHeading = () => {
           <b className='font-semibold'>40‑year track record</b> of success.
         </p>
       </div>
-      <div className='w-[400px] h-[1px] bg-slate-500 my-10' />
+      <Divider width={'400px'} />
     </div>
   );
 };

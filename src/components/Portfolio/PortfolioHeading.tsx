@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from '../Divider';
 
 const PortfolioHeading = () => {
   const [activeSection, setActiveSection] = React.useState('Recent Projects.');
@@ -37,7 +38,7 @@ const PortfolioHeading = () => {
           billion.
         </p>
       </div>
-      <div className='w-[400px] h-[1px] bg-slate-500 my-10' />
+      <Divider width={'400px'} />
     </div>
   );
 };

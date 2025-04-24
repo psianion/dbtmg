@@ -8,14 +8,16 @@ const Footer = () => {
       <div className='w-[1080px] flex flex-col border-t-2 border-solid border-slate-400 pt-4'>
         <div className='w-full flex justify-between'>
           <div className='flex flex-col gap-0 mt-2'>
-            <p className={cn(defaultStyle)}>DB REALTY</p>
-            <p className={cn(defaultStyle)}>1 Post Street, Suite 3300</p>
-            <p className={cn(defaultStyle)}>San Francisco, CA 94104</p>
+            <p className={cn(defaultStyle)}>Valor Estate Limited</p>
+            <p className={cn(defaultStyle)}>
+              7th Floor, Resham Bhavan, Veer Nariman Road
+            </p>
+            <p className={cn(defaultStyle)}>Churchgate, Mumbai, MH 400020</p>
           </div>
           <div className='flex flex-col gap-0 mt-2'>
-            <p className={cn(defaultStyle)}>info@tmgpartners.com</p>
-            <p className={cn(defaultStyle)}>415.772.5900 T</p>
-            <p className={cn(defaultStyle)}>415.772.5911 F</p>
+            <p className={cn(defaultStyle)}>investors@dbg.co.in</p>
+            <p className={cn(defaultStyle)}>+91 22 49742706 T</p>
+            {/* <p className={cn(defaultStyle)}>415.772.5911 F</p> */}
           </div>
           <div className='flex flex-col gap-0 mt-2'>
             <p className={cn(defaultStyle)}>About</p>

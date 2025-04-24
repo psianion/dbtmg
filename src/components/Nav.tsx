@@ -7,7 +7,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
   const handleNavigation = (path: string) => {
     navigate(path);
   };
-  const defaultStyle = `w-[150px] h-[40px] bg-white/60 hover:bg-white cursor-pointer flex items-center justify-center font-light text-md text-slate-800`;
+  const defaultStyle = `w-[170px] h-[40px] bg-white/60 hover:bg-white cursor-pointer flex items-center justify-center font-light text-md text-slate-800`;
   return (
     <div className='w-full flex justify-center  mx-auto min-h-20 gap-1 absolute top-2 left-1/2 -translate-x-1/2 z-10'>
       <div
@@ -26,7 +26,12 @@ const Nav = ({ activePage }: { activePage?: string }) => {
       >
         Portfolio
       </div>
-      <div className={cn(defaultStyle)}>Advisory Board</div>
+      <div
+        className={cn(defaultStyle)}
+        onClick={() => handleNavigation('/board-of-directors')}
+      >
+        Board of Directors
+      </div>
       <div
         onClick={() => handleNavigation('/relationships')}
         className={cn(defaultStyle)}

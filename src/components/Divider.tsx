@@ -1,11 +1,14 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
 
-const Divider = ({ width }: { width?: string }) => {
+const Divider = ({ width, margin }: { width?: string; margin?: number }) => {
   return (
     <div
-      className={`${
-        width ? `w-[${width}]` : 'w-full'
-      } h-[1px] bg-slate-500 my-10`}
+      className={cn(
+        `${width ? `w-[${width}]` : 'w-full'} h-[1px] bg-slate-500 my-${
+          margin ?? 10
+        }`
+      )}
     />
   );
 };

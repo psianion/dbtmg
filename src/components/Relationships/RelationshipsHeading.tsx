@@ -5,44 +5,68 @@ const RelationshipsHeading = () => {
   const [activeSection, setActiveSection] = React.useState(
     'Financial Partners.'
   );
+  const financeRef = React.useRef<HTMLDivElement>(null);
+  const governmentRef = React.useRef<HTMLDivElement>(null);
+  const developmentRef = React.useRef<HTMLDivElement>(null);
+  const professionalRef = React.useRef<HTMLDivElement>(null);
 
   const sections = [
     'Financial Partners.',
-    'Tenants.',
-    'Communities.',
+    'Government Partners.',
+    'Development Partners.',
     'Professional Affiliations.'
   ];
 
   const data = [
     {
-      name: 'Financial Partners',
+      name: 'Financial Partners.',
       description:
-        'TMG Partners has a long history of working with the Bay Area’s leading financial institutions. We have a proven track record of delivering superior risk-adjusted returns to our partners.',
-      images: 13,
-      names: 40
+        'Valor collaborates with equity and debt investors to ensure project capitalization aligns with market conditions, delivering superior financial performance while enhancing the quality of the environment for tenants and the communities in which it operates.',
+      images: 6,
+      names: 0,
+      ref: financeRef
     },
     {
-      name: 'Tenants',
+      name: 'Government Partners.',
       description:
-        'TMG Partners has a long history of working with the Bay Area’s leading financial institutions. We have a proven track record of delivering superior risk-adjusted returns to our partners.',
-      images: 0,
-      names: 60
+        'Valor has worked across five or more cities in every major county neighborhood of the Mumbai Metropolitan Region. We collaborate with local government partners to develop projects that address specific development challenges and meet the unique needs of each community.',
+      images: 6,
+      names: 0,
+      ref: governmentRef
     },
     {
-      name: 'Communities',
+      name: 'Development Partners.',
       description:
-        'TMG Partners has a long history of working with the Bay Area’s leading financial institutions. We have a proven track record of delivering superior risk-adjusted returns to our partners.',
-      images: 0,
-      names: 20
-    },
-    {
-      name: 'Professional Affiliations',
-      description:
-        'TMG Partners has a long history of working with the Bay Area’s leading financial institutions. We have a proven track record of delivering superior risk-adjusted returns to our partners.',
+        'Valor’s joint development partners include some of the largest developers and financial institutions in the country.',
       images: 4,
-      names: 20
+      names: 0,
+      ref: developmentRef
+    },
+    {
+      name: 'Professional Affiliations.',
+      description:
+        "Valor's management team is actively involved in a diverse range of local and national professional associations.",
+      images: 5,
+      names: 0,
+      ref: professionalRef
     }
   ];
+
+  const handleScrollToSection = (section: string) => {
+    setActiveSection(section);
+    if (section === 'Financial Partners.' && financeRef.current) {
+      financeRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (section === 'Government Partners.' && governmentRef.current) {
+      governmentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (section === 'Development Partners.' && developmentRef.current) {
+      developmentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (section === 'Professional Affiliations.' && professionalRef.current) {
+      professionalRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className='flex flex-col w-[1080px]'>
@@ -51,7 +75,7 @@ const RelationshipsHeading = () => {
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
-              onClick={() => setActiveSection(section)}
+              onClick={() => handleScrollToSection(section)}
               className={`border-l-6 h-[25px] flex items-center border-solid pl-4 cursor-pointer text-lg ${
                 activeSection === section
                   ? 'border-red-600 text-red-600 font-semibold'
@@ -64,18 +88,14 @@ const RelationshipsHeading = () => {
           ))}
         </div>
         <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
-          TMG Partners has{' '}
-          <b className='font-semibold'>
-            entitled, developed, acquired and managed
-          </b>{' '}
-          a diversified portfolio of over 30 million square feet, valued at $6.8
-          billion.
+          VALOR STRUCTURES PARTNERSHIPS FOR EACH TRANSACTION TO ADDRESS SPECIFIC
+          COMMUNITY, INVESTOR AND END‑USER NEEDS.
         </p>
       </div>
-      <div className='w-[400px] h-[1px] bg-slate-500 my-10' />
+      <Divider width={'400px'} />
       <div className='flex flex-col w-full mb-10 text-slate-600'>
         {data.map((item, index) => (
-          <div key={index} className='flex flex-col gap-4'>
+          <div key={index} className='flex flex-col gap-4' ref={item.ref}>
             <p className='text-lg font-semibold '>{item.name}</p>
             <p className='text-sm font-light leading-5'>{item.description}</p>
             <div className='flex gap-4 flex-wrap'>

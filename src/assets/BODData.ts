@@ -1,0 +1,20 @@
+export const BODData = [
+  {
+    name: 'R.A Rajeev',
+    position: 'Independent Director',
+    image: 'https://via.placeholder.com/150',
+    text: "Mr. Rajeev RA is a 1987 batch retired IAS officer of the Maharashtra cadre. In his 34 years of service, he has worked extensively across urban development, environment, and finance at both State and Central government levels. He served as Principal Secretary in the Finance Department of the Government of Maharashtra, overseeing the State Budget and expenditure management, and as Joint Secretary (Finance) in the Department of Atomic Energy, Government of India. His distinguished career in urban development includes roles as Joint Municipal Commissioner and Additional Municipal Commissioner in Mumbai, Municipal Commissioner of Thane City, and Metropolitan Commissioner in Mumbai. As Metropolitan Commissioner of MMRDA, he led the execution of mega infrastructure projects, including 340 kilometres of the Mumbai Metro and the USD 21.42 billion Mumbai Trans Harbour Link—the city's longest sea bridge. He also established Maha Mumbai Metro Operation Corporation Limited to oversee the operation and maintenance of the new Metro services. His expertise in finance and environmental issues has significantly enhanced his ability to manage complex urban challenges effectively. Mr. Rajeev holds a Bachelor of Arts in Mathematics, English Literature, and Political Science, a Master of Arts in Political Science, and a Master’s degree in Public Administration from Syracuse University, New York, USA, equipping him to advise public organisations on policy analysis, public finance, and organisational strategy."
+  },
+  {
+    name: 'Mahesh Gandhi',
+    position: 'Independent Director',
+    image: 'https://via.placeholder.com/150',
+    text: 'Mr. Mahesh Gandhi holds a Master’s Degree in Financial Management from Jamnalal Bajaj Institute of Management Studies, Mumbai, a Master’s Degree in International Law and Tax Practice from the University of Gujarat, and a Diploma in Journalism. With over 40 years of progressive experience across multiple sectors, he has worked with reputed firms such as GIC of India and UTI (with a US$800 million AUM), and had a stint at Jardine Fleming, pioneering the firm’s entry into the asset management space. He has advised Hamon Asset Management and several companies across aviation, healthcare, hospitality, medium engineering, real estate, SEZs, and financial services. In 2005, he co-founded Trikona Investment Managers in collaboration with Lehman Brothers’ real estate platform and Wachovia Securities, serving as Principal for India in the Trikona Trinity Capital Investment Fund listed on AIM UK. Mr. Gandhi has closed transactions totaling over 40 million sq ft in the alternate infrastructure and residential sectors. As a Whole-time Director and mentor of Apodis Hotels & Resorts Ltd., he has led the Apodis Group in structuring business opportunities from concept to delivery. Over the past 11 years, he has built an integrated delivery platform for economy and midscale hotels, including food and allied services.'
+  },
+  {
+    name: 'Maryam Khan',
+    position: 'Independent Director',
+    image: 'https://via.placeholder.com/150',
+    text: 'Ms. Maryam Khan holds a B.A. and LLB from Chaudhary Charan Singh University, Meerut, Uttar Pradesh. She is a Director at Clear Path Health Care Private Limited, a company that revolutionizes the treatment of malocclusions (teeth straightening) using USFDA-approved breakthrough technology. Her areas of expertise include developing and directing business strategy, project management, liaising with government departments and regulatory bodies, improving business margins, and ensuring high-quality client service. She is also skilled in financial management, product launches, client retention, cost control, and maintaining expenditures within agreed budgets. In addition to her role at Clear Path, she serves as a Director in several other private companies.'
+  }
+];
