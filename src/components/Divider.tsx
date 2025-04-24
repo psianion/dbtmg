@@ -6,7 +6,7 @@ const Divider = ({ width, margin }: { width?: string; margin?: number }) => {
     <div
       className={cn(
         `${width ? `w-[${width}]` : 'w-full'} h-[1px] bg-slate-500 my-${
-          margin ?? 10
+          margin ? `${margin}` : '10'
         }`
       )}
     />
