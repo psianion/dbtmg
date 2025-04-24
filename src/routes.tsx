@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Relationships from './pages/Relationships';
-import BoardOfDirectors from './pages/BoardOfDirectors';
-import Philanthropy from './pages/Philanthropy';
+
+// Lazy load pages
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Relationships = lazy(() => import('./pages/Relationships'));
+const BoardOfDirectors = lazy(() => import('./pages/BoardOfDirectors'));
+const Philanthropy = lazy(() => import('./pages/Philanthropy'));
+
+// Wrapper to apply Suspense to each route element
+const withSuspense = (
+  Component: React.LazyExoticComponent<() => JSX.Element>
+) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Component />
+  </Suspense>
+);
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
-  { path: '/about', element: <About /> },
-  { path: '/portfolio', element: <Portfolio /> },
-  { path: '/relationships', element: <Relationships /> },
-  { path: '/philanthropy', element: <Philanthropy /> },
-  { path: '/board-of-directors', element: <BoardOfDirectors /> },
+  { path: '/', element: withSuspense(Home) },
+  { path: '/about', element: withSuspense(About) },
+  { path: '/portfolio', element: withSuspense(Portfolio) },
+  { path: '/relationships', element: withSuspense(Relationships) },
+  { path: '/philanthropy', element: withSuspense(Philanthropy) },
+  { path: '/board-of-directors', element: withSuspense(BoardOfDirectors) },
   { path: '*', element: <Navigate to='/' replace /> }
 ]);
 
