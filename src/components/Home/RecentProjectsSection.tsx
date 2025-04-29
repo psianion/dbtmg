@@ -25,11 +25,14 @@ const RecentProjectsSection = () => {
             </div>
           ))}
         </div>
-        <p className='w-[500px] font-lg font-light text-slate-600 leading-5.5'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
-          repudiandae hic minus, consectetur officiis ea! Culpa nostrum magni
-          ad, odio dicta ut quos, iusto quam vitae quia exercitationem nisi
-          sapiente!
+        <p className='w-[500px] text-sm font-light text-slate-600 leading-4.5'>
+          DB Realty (NSE: DB Realty) is a full service development company
+          focusing on large scale, urban regeneration projects in the Mumbai
+          Metropolitan Region. Our exclusive focus on brownfield development and
+          on this region helps us understand the nuances of market trends and
+          timing. Our relationships and technical knowledge give us an edge in
+          developing iconic properties in challenging land and regulatory
+          regimes.
         </p>
       </div>
       <div className='w-full overflow-x-scroll flex gap-2 pb-6'>

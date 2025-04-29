@@ -12,7 +12,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
     <div className='w-full flex justify-center  mx-auto min-h-20 gap-1 absolute top-2 left-1/2 -translate-x-1/2 z-10'>
       <div
         onClick={() => handleNavigation('/')}
-        className='w-[200px] h-[80px] bg-white hover:bg-white/60 cursor-pointer border-l-8 border-solid border-red-500'
+        className='w-[250px] h-[80px] bg-white hover:bg-white/60 cursor-pointer  bg-[url(/dblogo.webp)] bg-center bg-cover bg-no-repeat p-4'
       ></div>
       <div
         onClick={() => handleNavigation('/about')}
@@ -45,7 +45,12 @@ const Nav = ({ activePage }: { activePage?: string }) => {
         Philanthropy
       </div>
       <div className='w-[150px] h-[80px] flex flex-col gap-1'>
-        <div className={cn(defaultStyle)}>News & Awards</div>
+        <div
+          className={cn(defaultStyle)}
+          onClick={() => handleNavigation('/blogs')}
+        >
+          News & Awards
+        </div>
         <div
           className={cn(defaultStyle, 'bg-red-500 hover:bg-red-400 text-white')}
         >

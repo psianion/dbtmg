@@ -4,12 +4,21 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-const images = ['/hero/hero1.jpg', '/hero/hero1.jpg', '/hero/hero1.jpg'];
+const images = ['/hero/hero1.webp', '/hero/hero1.webp', '/hero/hero1.webp'];
 
 const heroData = [
-  { id: 1, image: '/hero/hero1.jpg', desc: 'Lorem ipsum dolor sit amet.' },
-  { id: 2, image: '/hero/hero1.jpg', desc: 'ipsum dolor sit amet Lorem' },
-  { id: 3, image: '/hero/hero1.jpg', desc: 'Lorem sit amet ipsum dolor' }
+  {
+    id: 1,
+    image: '/hero/hero1.webp',
+    desc: 'Developing Mumbai, brick by brick'
+  },
+  {
+    id: 2,
+    image: '/hero/hero2.webp',
+    desc: 'Creating landmarks that stand the test of time'
+  },
+  { id: 3, image: '/hero/hero3.webp', desc: 'Transforming urban districts' },
+  { id: 4, image: '/hero/hero4.webp', desc: 'Bringing jobs closer to transit' }
 ];
 
 const Hero = () => {
@@ -29,8 +38,8 @@ const Hero = () => {
               style={{ backgroundImage: `url(${src.image})` }}
               className='h-[95vh] w-full bg-center bg-cover bg-no-repeat'
             >
-              <div className='flex items-center justify-center h-full bg-black/30'>
-                <div className='w-[1000px] flex items-end h-full pb-20'>
+              <div className='flex items-center justify-center h-full bg-black/40'>
+                <div className='w-[1000px] flex items-end h-full pb-10'>
                   <h1 className='text-8xl text-white font-thin w-[700px]'>
                     {src.desc}
                   </h1>

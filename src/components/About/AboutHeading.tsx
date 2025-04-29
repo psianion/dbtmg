@@ -32,9 +32,9 @@ const AboutHeading = ({ ref }: { ref: React.RefObject<HTMLDivElement> }) => {
           ))}
         </div>
         <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
-          Bay Area focus, experienced management and long term local
-          relationships have been the keys to TMG’s{' '}
-          <b className='font-semibold'>40‑year track record</b> of success.
+          MUMBAI METROPOLITAN REGION FOCUS, EXPERIENCED MANAGEMENT AND LONG TERM
+          LOCAL RELATIONSHIPS HAVE BEEN THE KEYS TO VALOR’S{' '}
+          <b className='font-semibold'>25‑year track record</b> of success.
         </p>
       </div>
       <Divider width={'400px'} />
