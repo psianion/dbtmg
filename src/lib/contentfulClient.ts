@@ -8,7 +8,7 @@ const client = createClient({
 export async function fetchEntries(contentType) {
   const { items } = await client.getEntries({
     content_type: contentType,
-    order: '-sys.createdAt'
+    order: ['-sys.createdAt'] as const
   });
   return items;
 }
