@@ -1,25 +1,30 @@
 import React from 'react';
 
-const SignatureProjectsPortfolio = () => {
+const SignatureProjectsPortfolio = ({ projects }) => {
   return (
     <div className='flex flex-col w-[1080px] mb-10'>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>
         Signature Projects.
       </h2>
       <div className='flex gap-4 flex-wrap'>
-        {[...Array(13)].map((_, index) => (
+        {projects.map((el, index) => (
           <div
             key={index}
             className='flex flex-col gap-2 w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
           >
-            <div className='w-full h-[120px] bg-[url(/hero/hero1.jpg)] bg-center bg-cover bg-no-repeat' />
+            <div
+              style={{
+                backgroundImage: `url(https:${el.fields.images[0].fields.file.url})`
+              }}
+              className={`w-full h-[120px] bg-center bg-cover bg-no-repeat`}
+            />
             <div className='flex flex-col gap-0'>
-              <p className='font-semibold text-sm'>Landmark at One Market</p>
+              <p className='font-semibold text-sm'>{el.fields.name}</p>
               <p className='font-light text-xs uppercase text-slate-600'>
-                San Francisco
+                {el.fields.city}
               </p>
               <p className='font-light text-xs text-slate-600'>
-                400,000 sq. ft. Office
+                {`${el.fields.area} sq. ft.`}
               </p>
             </div>
           </div>
