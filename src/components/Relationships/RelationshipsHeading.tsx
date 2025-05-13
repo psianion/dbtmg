@@ -36,13 +36,10 @@ const RelationshipsHeading = () => {
     fetchProjects();
   }, []);
 
-  //mediaDirectory
-
   const sections = [
     'Financial Partners.',
     'Government Partners.',
     'Development Partners.'
-    // 'DB Brand Collaterals.'
   ];
 
   const data = [
