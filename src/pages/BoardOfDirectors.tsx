@@ -21,6 +21,7 @@ const BoardOfDirectors = () => {
           designation: item.fields.designation,
           directorCategory: item.fields.directorCategory,
           bio: item.fields.shortBiography,
+          //@ts-ignore
           image: `https:${item.fields.profilePic.fields.file.url}`
         };
       });

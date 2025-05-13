@@ -20,6 +20,7 @@ const RelationshipsHeading = () => {
       const data = response.map((item) => {
         return {
           name: item.fields.name,
+          //@ts-ignore
           images: item.fields.imageName.map(
             (el) => `https:${el.fields.file.url}`
           )

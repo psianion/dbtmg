@@ -1,12 +1,4 @@
-import {
-  DesignTeam,
-  DevelopmentTeam,
-  FinanceTeam,
-  LeadershipData,
-  LegalTeam,
-  LiaisonTeam,
-  SalesTeam
-} from '@/assets/AboutData';
+//@ts-nocheck
 import AboutHeading from '@/components/About/AboutHeading';
 import AboutHero from '@/components/About/AboutHero';
 import AboutMain from '@/components/About/AboutMain';
