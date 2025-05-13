@@ -1,7 +1,40 @@
+import { fetchEntries } from '@/lib/contentfulClient';
 import React from 'react';
+import ProjectMap from '../Map';
 
 const RecentProjectsSection = () => {
   const [activeSection, setActiveSection] = React.useState('Recent Projects');
+  const [projects, setProjects] = React.useState([]);
+
+  const [loading, setLoading] = React.useState(true);
+
+  const fetchProjects = async () => {
+    try {
+      const response = await fetchEntries('projects');
+      const data = response.map((item) => {
+        return {
+          name: item.fields.name,
+          city: item.fields.city,
+          slug: item.fields.slug,
+          area: item.fields.area,
+          image: `https:${item.fields.images[0].fields.file.url}`,
+          isSignature: item.fields.isSignatureProject || false,
+          location: item.fields.location
+        };
+      });
+      setProjects(data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  if (loading) return <p>Loading projects...</p>;
+
   const sections = [
     'Recent Projects',
     'Signature Projects',
@@ -35,22 +68,59 @@ const RecentProjectsSection = () => {
           regimes.
         </p>
       </div>
-      <div className='w-full overflow-x-scroll flex gap-2 pb-6'>
-        {[...Array(10)].map((_, index) => (
-          <div className='min-w-[200px] flex flex-col gap-2'>
-            <div className='w-full h-[120px] bg-[url(/hero/hero1.jpg)] bg-center bg-cover bg-no-repeat' />
-            <div className='flex flex-col gap-0'>
-              <p className='font-semibold text-sm text-slate-600'>
-                Platform 16
-              </p>
-              <p className='font-light text-sm text-slate-600'>San Jose</p>
-              <p className='font-light text-sm text-slate-600'>
-                1.1 million sq. ft. Office
-              </p>
+      {activeSection === 'Mumbai Experience Map' && (
+        <div className='w-full h-[680px]'>
+          <ProjectMap projects={projects} />
+        </div>
+      )}
+      {activeSection === 'Recent Projects' && (
+        <div className='w-full overflow-x-scroll flex gap-2 pb-6'>
+          {projects.map((el, index) => (
+            <div className='min-w-[200px] flex flex-col gap-2' key={index}>
+              <div
+                className='w-full h-[120px] bg-center bg-cover bg-no-repeat'
+                style={{
+                  backgroundImage: `url(${el.image})`
+                }}
+              />
+              <div className='flex flex-col gap-0'>
+                <p className='font-semibold text-sm text-slate-600'>
+                  {el.name}
+                </p>
+                <p className='font-light text-sm text-slate-600'>{el.city}</p>
+                <p className='font-light text-sm text-slate-600'>
+                  {`${el.area} sq. mt.`}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
+      {activeSection === 'Signature Projects' && (
+        <div className='w-full overflow-x-scroll flex gap-2 pb-6'>
+          {projects
+            .filter((el) => el.isSignature)
+            .map((el, index) => (
+              <div className='min-w-[200px] flex flex-col gap-2' key={index}>
+                <div
+                  className='w-full h-[120px] bg-center bg-cover bg-no-repeat'
+                  style={{
+                    backgroundImage: `url(${el.image})`
+                  }}
+                />
+                <div className='flex flex-col gap-0'>
+                  <p className='font-semibold text-sm text-slate-600'>
+                    {el.name}
+                  </p>
+                  <p className='font-light text-sm text-slate-600'>{el.city}</p>
+                  <p className='font-light text-sm text-slate-600'>
+                    {`${el.area} sq. ft.`}
+                  </p>
+                </div>
+              </div>
+            ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,20 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Divider from '../Divider';
+import { fetchEntries } from '@/lib/contentfulClient';
 
 const RelationshipsHeading = () => {
   const [activeSection, setActiveSection] = React.useState(
     'Financial Partners.'
   );
+  const [media, setMedia] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const financeRef = React.useRef<HTMLDivElement>(null);
   const governmentRef = React.useRef<HTMLDivElement>(null);
   const developmentRef = React.useRef<HTMLDivElement>(null);
   const professionalRef = React.useRef<HTMLDivElement>(null);
 
+  const fetchProjects = async () => {
+    try {
+      const response = await fetchEntries('mediaDirectory');
+      const data = response.map((item) => {
+        return {
+          name: item.fields.name,
+          images: item.fields.imageName.map(
+            (el) => `https:${el.fields.file.url}`
+          )
+        };
+      });
+      setMedia(data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  //mediaDirectory
+
   const sections = [
     'Financial Partners.',
     'Government Partners.',
-    'Development Partners.',
-    'Professional Affiliations.'
+    'Development Partners.'
+    // 'DB Brand Collaterals.'
   ];
 
   const data = [
@@ -22,7 +50,8 @@ const RelationshipsHeading = () => {
       name: 'Financial Partners.',
       description:
         'Valor collaborates with equity and debt investors to ensure project capitalization aligns with market conditions, delivering superior financial performance while enhancing the quality of the environment for tenants and the communities in which it operates.',
-      images: 6,
+      images:
+        media?.find((item) => item.name === 'Financial Partners')?.images || [],
       names: 0,
       ref: financeRef
     },
@@ -30,7 +59,9 @@ const RelationshipsHeading = () => {
       name: 'Government Partners.',
       description:
         'Valor has worked across five or more cities in every major county neighborhood of the Mumbai Metropolitan Region. We collaborate with local government partners to develop projects that address specific development challenges and meet the unique needs of each community.',
-      images: 6,
+      images:
+        media?.find((item) => item.name === 'Government Partners')?.images ||
+        [],
       names: 0,
       ref: governmentRef
     },
@@ -38,18 +69,22 @@ const RelationshipsHeading = () => {
       name: 'Development Partners.',
       description:
         'Valor’s joint development partners include some of the largest developers and financial institutions in the country.',
-      images: 4,
+      images:
+        media?.find((item) => item.name === 'Development Partners')?.images ||
+        [],
       names: 0,
       ref: developmentRef
-    },
-    {
-      name: 'Professional Affiliations.',
-      description:
-        "Valor's management team is actively involved in a diverse range of local and national professional associations.",
-      images: 5,
-      names: 0,
-      ref: professionalRef
     }
+    // {
+    //   name: 'DB Brand Collaterals.',
+    //   description:
+    //     "Valor's management team is actively involved in a diverse range of local and national professional associations.",
+    //   images:
+    //     media?.find((item) => item.name === 'DB Brand Collaterals')?.images ||
+    //     [],
+    //   names: 0,
+    //   ref: professionalRef
+    // }
   ];
 
   const handleScrollToSection = (section: string) => {
@@ -68,6 +103,9 @@ const RelationshipsHeading = () => {
     }
   };
 
+  if (loading) {
+    return <div>Loading Relationships...</div>;
+  }
   return (
     <div className='flex flex-col w-[1080px]'>
       <h1 className='text-8xl text-slate-600 font-thin my-6'>Relationships.</h1>
@@ -99,17 +137,22 @@ const RelationshipsHeading = () => {
             <p className='text-lg font-semibold '>{item.name}</p>
             <p className='text-sm font-light leading-5'>{item.description}</p>
             <div className='flex gap-4 flex-wrap'>
-              {[...Array(item.images)].map((_, index) => (
-                <div className='w-[200px] h-[100px] bg-[url(/hero/hero1.jpg)] bg-center bg-cover bg-no-repeat' />
+              {item.images.map((_, index) => (
+                <div
+                  style={{
+                    backgroundImage: `url(${item.images[index]})`
+                  }}
+                  className='w-[200px] h-[100px] bg-center bg-contain bg-no-repeat'
+                />
               ))}
             </div>
-            <div className='flex flex-wrap'>
+            {/* <div className='flex flex-wrap'>
               {[...Array(item.names)].map((_, index) => (
                 <p className='w-[250px] text-sm font-light leading-5'>
                   Something
                 </p>
               ))}
-            </div>
+            </div> */}
             {index < data.length - 1 ? <Divider /> : null}
           </div>
         ))}

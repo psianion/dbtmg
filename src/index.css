@@ -7,6 +7,69 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./assets/fonts/HelveticaNeueUltraLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 200;
+  src: url('./assets/fonts/HelveticaNeueThin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/HelveticaNeueLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/HelveticaNeue-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/HelveticaNeueMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/HelveticaNeueBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/HelveticaNeueBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 800;
+  src: url('./assets/fonts/HelveticaNeueHeavy.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 900;
+  src: url('./assets/fonts/HelveticaNeueBlack.otf') format('opentype');
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,7 +106,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: 'Poppins', sans-serif;
+  --font-sans: 'Helvetica Neue', sans-serif;
 }
 
 :root {

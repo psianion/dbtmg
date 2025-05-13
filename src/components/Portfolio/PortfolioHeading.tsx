@@ -1,14 +1,26 @@
 import React from 'react';
 import Divider from '../Divider';
 
-const PortfolioHeading = () => {
+const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
   const [activeSection, setActiveSection] = React.useState('Recent Projects.');
   const sections = [
     'Recent Projects.',
     'Signature Projects.',
-    'By Location and Type.',
     'Mumbai Experience Map.'
   ];
+
+  const handleScrollToSection = (section: string) => {
+    setActiveSection(section);
+    if (section === 'Recent Projects.' && recentRef.current) {
+      recentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (section === 'Signature Projects.' && signatureRef.current) {
+      signatureRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (section === 'Mumbai Experience Map.' && mapRef.current) {
+      mapRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className='flex flex-col w-[1080px]'>
@@ -17,7 +29,7 @@ const PortfolioHeading = () => {
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
-              onClick={() => setActiveSection(section)}
+              onClick={() => handleScrollToSection(section)}
               className={`border-l-6 h-[25px] flex items-center border-solid pl-4 cursor-pointer text-lg ${
                 activeSection === section
                   ? 'border-red-600 text-red-600 font-semibold'

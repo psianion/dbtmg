@@ -1,5 +1,8 @@
+import { RouterProvider } from 'react-router-dom';
+import router from './routes';
+
 function App() {
-  return <div className='bg-slate-50 w-full h-full'>d</div>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
