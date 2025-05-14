@@ -34,11 +34,16 @@ const About = () => {
           slug: item.fields.slug,
           teamName: item.fields.teamName,
           image: `https:${item.fields.images[0].fields.file.url}`,
-          desc: item.fields.description.content.map((el) => el.content[0].value)
+          desc: item.fields.description.content.map(
+            (el) => el.content[0].value
+          ),
+          rank: item.fields.rank
         };
       });
 
-      const groupedData = data.reduce((acc, person) => {
+      const sortedData = data.sort((a, b) => a.rank - b.rank);
+
+      const groupedData = sortedData.reduce((acc, person) => {
         const team = person.teamName;
         if (!acc[team]) {
           acc[team] = [];
