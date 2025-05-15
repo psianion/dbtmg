@@ -1,4 +1,4 @@
-import { BODData } from '@/assets/BODData';
+// @ts-nocheck
 import BODHeading from '@/components/BoardOfDirectors/BODHeading';
 import BODHero from '@/components/BoardOfDirectors/BODHero';
 import Divider from '@/components/Divider';
@@ -21,11 +21,13 @@ const BoardOfDirectors = () => {
           designation: item.fields.designation,
           directorCategory: item.fields.directorCategory,
           bio: item.fields.shortBiography,
-          //@ts-ignore
+          rank: item.fields.rank,
           image: `https:${item.fields.profilePic.fields.file.url}`
         };
       });
-      setBoard(data);
+
+      const sortedData = data.sort((a, b) => a.rank - b.rank);
+      setBoard(sortedData);
       setLoading(false);
     } catch (error) {
       console.error(error);

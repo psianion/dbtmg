@@ -22,7 +22,7 @@ const RelationshipsHeading = () => {
           name: item.fields.name,
           //@ts-ignore
           images: item.fields.imageName.map(
-            (el) => `https:${el.fields.file.url}`
+            (el) => `https:${el.fields?.file?.url}`
           )
         };
       });

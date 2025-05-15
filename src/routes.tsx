@@ -4,6 +4,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
+const AboutDetails = lazy(() => import('./pages/AboutDetails'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
 const Relationships = lazy(() => import('./pages/Relationships'));
@@ -24,6 +25,7 @@ const withSuspense = (
 const router = createBrowserRouter([
   { path: '/', element: withSuspense(Home) },
   { path: '/about', element: withSuspense(About) },
+  { path: '/about/:slug', element: withSuspense(AboutDetails) },
   { path: '/portfolio', element: withSuspense(Portfolio) },
   { path: '/portfolio/:slug', element: withSuspense(PortfolioDetails) },
   { path: '/relationships', element: withSuspense(Relationships) },

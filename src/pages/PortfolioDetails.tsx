@@ -39,7 +39,6 @@ const PortfolioDetails = () => {
 
   if (loading) return <p>Loading...</p>;
   if (!project) return <p>Blog not found</p>;
-  console.log(project);
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-slate-50'>
