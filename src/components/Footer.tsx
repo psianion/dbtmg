@@ -70,7 +70,10 @@ const Footer = () => {
               News & Awards
             </p>
           </div>
-          <div className='w-[300px] h-[80px] rounded-sm bg-slate-200 bg-[url(/dblogo.webp)] bg-center bg-cover bg-no-repeat '></div>
+          <div className='flex items-center gap-1'>
+            <div className='w-[70px] h-[70px] rounded-sm bg-slate-200 bg-[url(/25years.webp)] bg-center bg-cover bg-no-repeat ' />
+            <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/dblogo.webp)] bg-center bg-cover bg-no-repeat mt-1' />
+          </div>
         </div>
         <p className='font-light text-slate-500 text-xs'>
           © 2025 DB Partners. Terms of Use

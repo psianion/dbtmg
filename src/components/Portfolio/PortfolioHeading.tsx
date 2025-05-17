@@ -42,7 +42,7 @@ const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
           ))}
         </div>
         <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
-          TMG Partners has{' '}
+          Valor has{' '}
           <b className='font-semibold'>
             entitled, developed, acquired and managed
           </b>{' '}

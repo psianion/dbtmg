@@ -27,7 +27,18 @@ const BoardOfDirectors = () => {
       });
 
       const sortedData = data.sort((a, b) => a.rank - b.rank);
-      setBoard(sortedData);
+
+      //group by directorCategory
+      const groupedData = sortedData.reduce((acc, person) => {
+        const team = person.directorCategory;
+        if (!acc[team]) {
+          acc[team] = [];
+        }
+        acc[team].push(person);
+        return acc;
+      });
+      console.log(groupedData);
+      setBoard(groupedData);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -44,30 +55,33 @@ const BoardOfDirectors = () => {
       <Nav />
       <BODHero />
       <BODHeading />
-      <div className='flex flex-col w-[1080px] mb-8'>
-        {board.length &&
-          board.map((el, index) => (
-            <div key={index} className='flex flex-col w-full gap-5'>
-              <p className='font-semibold text-slate-600 text-xl p-7 pb-0 pt-2'>
-                {el.name}
-              </p>
-              <div className='w-full flex justify-between p-7 py-0'>
-                <div className='w-[750px] font-light text-slate-600 text-[15px] leading-5 prose'>
-                  <Markdown>{el.bio}</Markdown>
+      {['Founders', 'Directors', 'Independent Directors'].map((team) => (
+        <div key={team} className='flex flex-col w-[1080px] my-8'>
+          <p className='font-[100] text-slate-600 text-[40px] mb-8'>{team}.</p>
+          {board[team] &&
+            board[team].map((el, index) => (
+              <div key={index} className='flex flex-col w-full gap-5'>
+                <p className='font-semibold text-slate-600 text-xl p-7 pb-0 pt-2'>
+                  {el.name}
+                </p>
+                <div className='w-full flex justify-between p-7 py-0'>
+                  <div className='w-[750px] font-light text-slate-600 text-[15px] leading-5 prose'>
+                    <Markdown>{el.bio}</Markdown>
+                  </div>
+                  <div
+                    style={{
+                      backgroundImage: `url(${el.image})`
+                    }}
+                    className='w-[250px] h-[250px] bg-center bg-cover bg-no-repeat'
+                  />
                 </div>
-                <div
-                  style={{
-                    backgroundImage: `url(${el.image})`
-                  }}
-                  className='w-[250px] h-[250px] bg-center bg-cover bg-no-repeat'
-                />
+                {index !== board[team].length - 1 && (
+                  <Divider width={'400px'} margin={5} />
+                )}
               </div>
-              {index !== board.length - 1 && (
-                <Divider width={'400px'} margin={5} />
-              )}
-            </div>
-          ))}
-      </div>
+            ))}
+        </div>
+      ))}
       <Footer />
     </div>
   );

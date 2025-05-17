@@ -15,7 +15,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
       <div className='w-[1080px] flex justify-center  mx-auto min-h-20 gap-1 absolute top-6 left-1/2 -translate-x-1/2 z-10'>
         <div
           onClick={() => handleNavigation('/')}
-          className='w-[200px] h-[75px] bg-white hover:bg-white/60 cursor-pointer  bg-[url(/dblogo.webp)] bg-center bg-cover bg-no-repeat p-4'
+          className='w-[200px] h-[75px] bg-white hover:bg-white/60 cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-start bg-cover bg-no-repeat p-4'
         ></div>
         <div
           onClick={() => handleNavigation('/about')}
