@@ -2,7 +2,7 @@
 import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
 import NewsHeading from '@/components/News/NewsHeading';
-import NewsHero from '@/components/News/newsHero';
+import NewsHero from '@/components/News/NewsHero';
 import { fetchEntries } from '@/lib/contentfulClient';
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
