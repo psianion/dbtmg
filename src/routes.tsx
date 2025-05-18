@@ -11,6 +11,7 @@ const Relationships = lazy(() => import('./pages/Relationships'));
 const BoardOfDirectors = lazy(() => import('./pages/BoardOfDirectors'));
 const Philanthropy = lazy(() => import('./pages/Philanthropy'));
 const Blogs = lazy(() => import('./pages/Blogs'));
+const Investor = lazy(() => import('./pages/InvestorRelations'));
 const BlogDetails = lazy(() => import('./pages/BlogDetails'));
 
 // Wrapper to apply Suspense to each route element
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   { path: '/board-of-directors', element: withSuspense(BoardOfDirectors) },
   { path: '/blogs', element: withSuspense(Blogs) },
   { path: '/blogs/:slug', element: withSuspense(BlogDetails) },
+  { path: '/investor-relations', element: withSuspense(Investor) },
   { path: '*', element: <Navigate to='/' replace /> }
 ]);
 
