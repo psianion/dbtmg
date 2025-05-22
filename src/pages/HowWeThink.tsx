@@ -71,6 +71,7 @@ const HowWeThinkModal = ({
               <p className='text-[94px] font-[100] leading-[100px] w-[720px]'>
                 {activeData.quote}
               </p>
+              <p>- {activeData.quoteAttribution}</p>
               <p className='text-[16px] font-[300] w-[500px] mt-10'>
                 {activeData.description}
               </p>

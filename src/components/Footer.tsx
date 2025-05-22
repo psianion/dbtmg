@@ -8,7 +8,7 @@ const Footer = () => {
     navigate(path);
   };
 
-  const defaultStyle = `font-light text-slate-600 text-sm`;
+  const defaultStyle = `font-light text-slate-600 text-sm cursor-pointer`;
   return (
     <div className='w-full mt-auto flex justify-center mb-8'>
       <div className='w-[1080px] flex flex-col border-t-2 border-solid border-slate-400 pt-4'>
@@ -69,14 +69,20 @@ const Footer = () => {
             >
               News & Awards
             </p>
+            <p
+              className={cn(defaultStyle)}
+              onClick={() => handleNavigation('/investor-relations')}
+            >
+              Investor Relations
+            </p>
           </div>
-          <div className='flex items-center gap-1'>
+          <div className='flex items-center gap-2'>
             <div className='w-[70px] h-[70px] rounded-sm bg-slate-200 bg-[url(/25years.webp)] bg-center bg-cover bg-no-repeat ' />
-            <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/dblogo.webp)] bg-center bg-cover bg-no-repeat mt-1' />
+            <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat mt-1' />
           </div>
         </div>
         <p className='font-light text-slate-500 text-xs'>
-          © 2025 DB Partners. Terms of Use
+          © 2025 Valor Estate Limited. Terms of Use
         </p>
       </div>
     </div>

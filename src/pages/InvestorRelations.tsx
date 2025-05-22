@@ -1,46 +1,49 @@
 //@ts-nocheck
 import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
-import NewsHeading from '@/components/News/NewsHeading';
-import NewsHero from '@/components/News/NewsHero';
 import { fetchEntries } from '@/lib/contentfulClient';
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import InvestorHero from '@/components/InvestorRelations/InvestorHero';
+import InvestorHeading from '@/components/InvestorRelations/InvestorHeading';
 
 const Investor = () => {
   const [news, setNews] = useState([]);
-  const [activeSection, setActiveSection] = React.useState('In the News');
+  const [activeSection, setActiveSection] = React.useState(
+    'Financial Statements'
+  );
   const [loading, setLoading] = useState(true);
-  const teams = ['In the News', 'Press Release', 'Video Coverage', 'Awards'];
+  const teams = [
+    'Financial Statements',
+    'Codes & Policies',
+    'Stock Exchange Communication',
+    'Others'
+  ];
 
   const fetchPeople = async () => {
     try {
       const response = await fetchEntries('investorRelations');
-      //   const data = response.map((item) => {
-      //     return {
-      //       title: item.fields.title || '',
-      //       year: item.fields.year || 2025,
-      //       nameOfPublication: item.fields.nameOfPublication || '',
-      //       itemType: item.fields.itemType || '',
-      //       image:
-      //         `https:${item.fields?.mediaUpload?.[0]?.fields?.file?.url}` || '',
-      //       excerpt: item.fields.excerpt || '',
-      //       date: item.fields.date || '',
-      //       slug: item.fields.slug || '',
-      //       text: item.fields.detailText || '',
-      //       author: item.fields.author || '',
-      //       hyperlink: item.fields.hyperlink || ''
-      //     };
-      //   });
+      const data = response.map((item) => {
+        return {
+          uploadDocumentType: item.fields.uploadDocumentType,
+          uploadDocument:
+            item.fields?.uploadDocumentTitle?.fields?.file?.url || '',
+          uploadType: item.fields.uploadType,
+          slug: item.fields.slug,
+          financialYear: item.fields.financialYear,
+          reportPeriodicity: item.fields.reportPeriodicity,
+          stockExchangeCommType: item.fields.stockExchangeCommType
+        };
+      });
 
-      //   const groupedData = data.reduce((acc, person) => {
-      //     const team = person.itemType;
-      //     if (!acc[team]) {
-      //       acc[team] = [];
-      //     }
-      //     acc[team].push(person);
-      //     return acc;
-      //   }, {});
+      const groupedData = data.reduce((acc, data) => {
+        const team = data.uploadType;
+        if (!acc[team]) {
+          acc[team] = [];
+        }
+        acc[team].push(data);
+        return acc;
+      }, {});
 
       //   const orderedGroupedData = teams.map((itemType) => ({
       //     name: itemType,
@@ -73,7 +76,7 @@ const Investor = () => {
       //   );
 
       //   setNews(orderedGroupedDataByYear);
-      console.log(response);
+      console.log(groupedData);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -89,8 +92,8 @@ const Investor = () => {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-slate-50'>
       <Nav />
-      <NewsHero />
-      <NewsHeading
+      <InvestorHero />
+      <InvestorHeading
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />

@@ -28,7 +28,7 @@ const Hero = () => {
     <div className='w-full h-full '>
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={{ delay: 7000, disableOnInteraction: false }}
         loop={true}
         effect='fade'
         fadeEffect={{ crossFade: true }}

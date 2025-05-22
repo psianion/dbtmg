@@ -36,8 +36,7 @@ const BoardOfDirectors = () => {
         }
         acc[team].push(person);
         return acc;
-      });
-      console.log(groupedData);
+      }, {});
       setBoard(groupedData);
       setLoading(false);
     } catch (error) {

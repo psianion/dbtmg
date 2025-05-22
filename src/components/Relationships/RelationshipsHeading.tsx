@@ -40,7 +40,8 @@ const RelationshipsHeading = () => {
   const sections = [
     'Financial Partners.',
     'Government Partners.',
-    'Development Partners.'
+    'Development Partners.',
+    'Professional Affiliations.'
   ];
 
   const data = [
@@ -72,17 +73,17 @@ const RelationshipsHeading = () => {
         [],
       names: 0,
       ref: developmentRef
+    },
+    {
+      name: 'Professional Affiliations.',
+      description:
+        "Valor's management team is actively involved in a diverse range of local and national professional associations.",
+      images:
+        media?.find((item) => item.name === 'Professional Affiliations')
+          ?.images || [],
+      names: 0,
+      ref: professionalRef
     }
-    // {
-    //   name: 'DB Brand Collaterals.',
-    //   description:
-    //     "Valor's management team is actively involved in a diverse range of local and national professional associations.",
-    //   images:
-    //     media?.find((item) => item.name === 'DB Brand Collaterals')?.images ||
-    //     [],
-    //   names: 0,
-    //   ref: professionalRef
-    // }
   ];
 
   const handleScrollToSection = (section: string) => {
