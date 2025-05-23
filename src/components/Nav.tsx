@@ -59,7 +59,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
         <div className='w-[150px] h-[80px] flex flex-col gap-1'>
           <div
             className={cn(defaultStyle)}
-            onClick={() => handleNavigation('/blogs')}
+            onClick={() => handleNavigation('/news')}
           >
             News & Awards
           </div>

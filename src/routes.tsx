@@ -32,8 +32,8 @@ const router = createBrowserRouter([
   { path: '/relationships', element: withSuspense(Relationships) },
   { path: '/philanthropy', element: withSuspense(Philanthropy) },
   { path: '/board-of-directors', element: withSuspense(BoardOfDirectors) },
-  { path: '/blogs', element: withSuspense(Blogs) },
-  { path: '/blogs/:slug', element: withSuspense(BlogDetails) },
+  { path: '/news', element: withSuspense(Blogs) },
+  { path: '/news/:slug', element: withSuspense(BlogDetails) },
   { path: '/investor-relations', element: withSuspense(Investor) },
   { path: '*', element: <Navigate to='/' replace /> }
 ]);

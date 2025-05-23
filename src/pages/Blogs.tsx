@@ -6,12 +6,15 @@ import NewsHero from '@/components/News/NewsHero';
 import { fetchEntries } from '@/lib/contentfulClient';
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 const Blogs = () => {
   const [news, setNews] = useState([]);
   const [activeSection, setActiveSection] = React.useState('In the News');
   const [loading, setLoading] = useState(true);
   const teams = ['In the News', 'Press Release', 'Video Coverage', 'Awards'];
+
+  const navigate = useNavigate();
 
   const fetchPeople = async () => {
     try {
@@ -112,7 +115,10 @@ const Blogs = () => {
                         <p className='font-semibold text-[16px] text-gray-600'>
                           {person.nameOfPublication}
                         </p>
-                        <p className='font-light text-[24px] text-slate-600'>
+                        <p
+                          onClick={() => navigate('/news/' + person.slug)}
+                          className='font-light text-[24px] text-slate-600 hover:text-red-600 transistion-all duration-300 ease-in-out cursor-pointer'
+                        >
                           {person.title}
                         </p>
                         <p className='font-light text-[12px] text-slate-500 italic'>
@@ -121,7 +127,10 @@ const Blogs = () => {
                         <p className='font-light text-[16px] text-slate-500'>
                           {person.excerpt}
                         </p>
-                        <p className='font-light text-[12px] text-red-600 uppercase cursor-pointer'>
+                        <p
+                          onClick={() => navigate('/news/' + person.slug)}
+                          className='font-light text-[12px] text-red-600 uppercase cursor-pointer'
+                        >
                           Read More
                         </p>
                       </div>

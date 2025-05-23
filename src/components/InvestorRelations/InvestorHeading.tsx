@@ -4,9 +4,11 @@ import Divider from '../Divider';
 const InvestorHeading = ({ activeSection, setActiveSection }) => {
   const sections = [
     'Financial Statements',
-    'Codes & Policies',
     'Stock Exchange Communication',
-    'Others'
+    'Shareholder Information',
+    'Codes & Policies',
+    'Others',
+    'Contact Details'
   ];
 
   return (
@@ -30,12 +32,12 @@ const InvestorHeading = ({ activeSection, setActiveSection }) => {
             </div>
           ))}
         </div>
-        {/* <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
+        <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
           Valor has won{' '}
           <b className='font-semibold'>awards for many projects</b> including
           honors for “Best Mixed Use,” “Best Office,” and “Best Historic
           Rehabilitation”.
-        </p> */}
+        </p>
       </div>
       <Divider width={'400px'} />
     </div>

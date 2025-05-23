@@ -6,35 +6,45 @@ import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import InvestorHero from '@/components/InvestorRelations/InvestorHero';
 import InvestorHeading from '@/components/InvestorRelations/InvestorHeading';
+import InvestorSections from '@/components/InvestorRelations/InvestorSections';
 
 const Investor = () => {
-  const [news, setNews] = useState([]);
+  const [documents, setDocuments] = useState([]);
   const [activeSection, setActiveSection] = React.useState(
     'Financial Statements'
   );
   const [loading, setLoading] = useState(true);
   const teams = [
     'Financial Statements',
-    'Codes & Policies',
     'Stock Exchange Communication',
-    'Others'
+    'Shareholder Information',
+    'Codes & Policies',
+    'Others',
+    'Contact Details'
   ];
 
   const fetchPeople = async () => {
     try {
       const response = await fetchEntries('investorRelations');
-      const data = response.map((item) => {
-        return {
-          uploadDocumentType: item.fields.uploadDocumentType,
-          uploadDocument:
-            item.fields?.uploadDocumentTitle?.fields?.file?.url || '',
-          uploadType: item.fields.uploadType,
-          slug: item.fields.slug,
-          financialYear: item.fields.financialYear,
-          reportPeriodicity: item.fields.reportPeriodicity,
+      const data = response.map((item) => ({
+        ...(item.fields.uploadDocumentType && {
+          uploadDocumentType: item.fields.uploadDocumentType
+        }),
+        ...(item.fields?.uploadDocumentTitle?.fields?.file?.url && {
+          uploadDocument: `https:${item.fields.uploadDocumentTitle.fields.file.url}`
+        }),
+        ...(item.fields.uploadType && { uploadType: item.fields.uploadType }),
+        ...(item.fields.slug && { slug: item.fields.slug }),
+        ...(item.fields.financialYear && {
+          financialYear: item.fields.financialYear
+        }),
+        ...(item.fields.reportPeriodicity && {
+          reportPeriodicity: item.fields.reportPeriodicity
+        }),
+        ...(item.fields.stockExchangeCommType && {
           stockExchangeCommType: item.fields.stockExchangeCommType
-        };
-      });
+        })
+      }));
 
       const groupedData = data.reduce((acc, data) => {
         const team = data.uploadType;
@@ -77,6 +87,7 @@ const Investor = () => {
 
       //   setNews(orderedGroupedDataByYear);
       console.log(groupedData);
+      setDocuments(groupedData);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -97,45 +108,12 @@ const Investor = () => {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      {/* <div className='flex w-[1080px] justify-end'>
-        <div className='w-[50%] flex flex-col gap-10 mb-10'>
-          {news[activeSection].map((item, index) => {
-            return (
-              <div key={index} className='w-full flex flex-col'>
-                <p className='font-semibold text-[19px] text-red-600'>
-                  {item.year}
-                </p>
-                <div className='flex flex-col gap-8'>
-                  {item.data.map((person, index) => {
-                    return (
-                      <div key={index} className='flex flex-col gap-1'>
-                        <p className='font-light text-[12px] text-slate-500 uppercase'>
-                          {format(new Date(person.date), 'MMMM dd, yyyy')}
-                        </p>
-                        <p className='font-semibold text-[16px] text-gray-600'>
-                          {person.nameOfPublication}
-                        </p>
-                        <p className='font-light text-[24px] text-slate-600'>
-                          {person.title}
-                        </p>
-                        <p className='font-light text-[12px] text-slate-500 italic'>
-                          {person.author}
-                        </p>
-                        <p className='font-light text-[16px] text-slate-500'>
-                          {person.excerpt}
-                        </p>
-                        <p className='font-light text-[12px] text-red-600 uppercase cursor-pointer'>
-                          Read More
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div> */}
+      {documents && documents[activeSection].length ? (
+        <InvestorSections
+          section={documents[activeSection]}
+          activeSection={activeSection}
+        />
+      ) : null}
       <Footer />
     </div>
   );

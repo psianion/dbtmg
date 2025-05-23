@@ -1,7 +1,13 @@
 import React from 'react';
 import Divider from '../Divider';
 
-const NewsHeading = ({ activeSection, setActiveSection }) => {
+const NewsHeading = ({
+  activeSection,
+  setActiveSection
+}: {
+  activeSection?: string;
+  setActiveSection?: (section: string) => void;
+}) => {
   const sections = ['In the News', 'Press Release', 'Video Coverage', 'Awards'];
 
   return (
@@ -11,7 +17,7 @@ const NewsHeading = ({ activeSection, setActiveSection }) => {
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
-              onClick={() => setActiveSection(section)}
+              onClick={() => setActiveSection?.(section)}
               className={`border-l-6 h-[25px] flex items-center border-solid pl-4 cursor-pointer text-lg ${
                 activeSection === section
                   ? 'border-red-600 text-red-600 font-semibold'
