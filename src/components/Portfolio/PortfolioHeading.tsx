@@ -46,8 +46,7 @@ const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
           <b className='font-semibold'>
             entitled, developed, acquired and managed
           </b>{' '}
-          a diversified portfolio of over 30 million square feet, valued at $6.8
-          billion.
+          a diversified portfolio of over 30 million square feet.
         </p>
       </div>
       <Divider width={'400px'} />

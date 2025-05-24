@@ -10,9 +10,8 @@ const BODHeading = () => {
       <div className='w-full flex justify-between'>
         <div className='flex flex-col gap-1'></div>
         <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
-          VALOR ESTATE IS PRIVILEGED TO WORK WITH A BOARD OF ADVISORS
-          REPRESENTED BY REGIONAL AND WORLD LEADERS IN REAL ESTATE, TECHNOLOGY,
-          GOVERNMENT AND FINANCE.
+          VALOR ESTATE IS PRIVILEGED TO WORK WITH A BOARD REPRESENTED BY WORLD
+          LEADERS IN DEVELOPMENT, REAL ESTATE, GOVERNMENT AND FINANCE.
         </p>
       </div>
       <Divider width={'400px'} />

@@ -135,7 +135,7 @@ const RelationshipsHeading = () => {
           <div key={index} className='flex flex-col gap-4' ref={item.ref}>
             <p className='text-lg font-semibold '>{item.name}</p>
             <p className='text-sm font-light leading-5'>{item.description}</p>
-            <div className='flex gap-4 flex-wrap'>
+            <div className='flex gap-4 flex-wrap justify-center'>
               {item.images.map((_, index) => (
                 <div
                   style={{

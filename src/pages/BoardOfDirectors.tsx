@@ -60,10 +60,10 @@ const BoardOfDirectors = () => {
           {board[team] &&
             board[team].map((el, index) => (
               <div key={index} className='flex flex-col w-full gap-5'>
-                <p className='font-semibold text-slate-600 text-xl p-7 pb-0 pt-2'>
+                <p className='font-semibold text-slate-600 text-xl pb-0 pt-2'>
                   {el.name}
                 </p>
-                <div className='w-full flex justify-between p-7 py-0'>
+                <div className='w-full flex justify-between py-0'>
                   <div className='w-[750px] font-light text-slate-600 text-[15px] leading-5 prose'>
                     <Markdown>{el.bio}</Markdown>
                   </div>

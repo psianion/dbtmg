@@ -81,9 +81,17 @@ const Footer = () => {
             <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat mt-1' />
           </div>
         </div>
-        <p className='font-light text-slate-500 text-xs'>
-          © 2025 Valor Estate Limited. Terms of Use
-        </p>
+        <div className='flex items-center gap-2'>
+          <p className='font-light text-slate-500 text-xs'>
+            © 2025 Valor Estate Limited.
+          </p>
+          <p
+            className='font-light text-slate-500 text-xs cursor-pointer'
+            onClick={() => handleNavigation('/terms-of-use')}
+          >
+            Terms of Use
+          </p>
+        </div>
       </div>
     </div>
   );
