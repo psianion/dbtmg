@@ -272,6 +272,9 @@ const InvestorSections = ({ section, activeSection }) => {
           <CodesPoliciesSection data={section} />
         )}
         {activeSection === 'Others' && <OthersSection data={section} />}
+        {activeSection === 'Contact Details' && (
+          <OthersSection data={section} />
+        )}
       </div>
     </div>
   );
