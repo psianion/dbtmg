@@ -23,9 +23,11 @@ const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
   };
 
   return (
-    <div className='flex flex-col w-[1080px]'>
-      <h1 className='text-8xl text-slate-600 font-thin my-6'>Portfolio.</h1>
-      <div className='w-full flex justify-between'>
+    <div className='flex flex-col w-[90%] lg:w-[1080px]'>
+      <h1 className='text-6xl lg:text-8xl text-slate-600 font-thin my-6'>
+        Portfolio.
+      </h1>
+      <div className='w-full flex flex-col-reverse lg:flex-row gap-5 justify-between'>
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
@@ -41,7 +43,7 @@ const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
             </div>
           ))}
         </div>
-        <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
+        <p className='w-full lg:w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
           Valor has{' '}
           <b className='font-semibold'>
             entitled, developed, acquired and managed
@@ -49,7 +51,10 @@ const PortfolioHeading = ({ recentRef, signatureRef, mapRef }) => {
           a diversified portfolio of over 30 million square feet.
         </p>
       </div>
-      <Divider width={'400px'} />
+
+      <div className='w-[200px] lg:w-[400px]'>
+        <Divider />
+      </div>
     </div>
   );
 };

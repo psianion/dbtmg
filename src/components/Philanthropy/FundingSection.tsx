@@ -3,10 +3,10 @@ import Divider from '../Divider';
 
 const FundingSection = () => {
   return (
-    <div className='w-[1080px] flex flex-col gap-6'>
+    <div className='w-[90%] lg:w-[1080px] flex flex-col gap-6'>
       <div className='w-full flex'>
-        <div className='w-[400px]'></div>
-        <div className='flex flex-col w-[680px] gap-2'>
+        <div className='w-[400px] hidden lg:block'></div>
+        <div className='flex flex-col w-full lg:w-[680px] gap-2'>
           <p className='font-semibold text-lg text-slate-600'>
             Housing, Community and the Arts
           </p>
@@ -32,7 +32,9 @@ const FundingSection = () => {
           </p>
         </div>
       </div>
-      <Divider width='400px' />
+      <div className='w-[200px] lg:w-[400px]'>
+        <Divider />
+      </div>
     </div>
   );
 };

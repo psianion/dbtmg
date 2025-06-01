@@ -257,8 +257,8 @@ const OthersSection = ({ data }) => {
 };
 const InvestorSections = ({ section, activeSection }) => {
   return (
-    <div className='flex w-[1080px]'>
-      <div className='w-[50%] flex flex-col gap-10 mb-10'>
+    <div className='flex flex-col lg:flex-row w-[90%] lg:w-[1080px]'>
+      <div className='w-full lg:w-[50%] flex flex-col gap-10 mb-10'>
         {activeSection === 'Financial Statements' && (
           <FinStatementSection data={section} />
         )}

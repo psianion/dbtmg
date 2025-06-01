@@ -13,7 +13,7 @@ const LeadershipTeam = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className='flex flex-col w-[1080px] my-5' ref={ref}>
+    <div className='flex flex-col w-[90%] lg:w-[1080px] my-5' ref={ref}>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>{name}.</h2>
       <div className='flex gap-4 flex-wrap'>
         {data.map((el, index) => (
@@ -21,7 +21,7 @@ const LeadershipTeam = ({
             key={el.name}
             onClick={() => navigate(`/about/${el.slug}`)}
             className={`flex flex-col gap-2 ${
-              name === 'Leadership Team' ? 'w-[190px]' : 'w-[160px]'
+              name === 'Leadership Team' ? 'w-[185px]' : 'w-[160px]'
             } text-slate-600 hover:text-red-700 cursor-pointer`}
           >
             <div

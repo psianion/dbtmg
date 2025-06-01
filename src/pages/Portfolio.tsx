@@ -57,7 +57,10 @@ const Portfolio = () => {
       <Divider width={'1080px'} />
       <SignatureProjectsPortfolio projects={projects} ref={signatureRef} />
       <Divider width={'1080px'} />
-      <div className='flex flex-col w-[1080px] h-[680px] mb-10' ref={mapRef}>
+      <div
+        className='flex flex-col w-[90%] lg:w-[1080px] h-[680px] mb-10'
+        ref={mapRef}
+      >
         <h2 className='text-lg font-semibold text-slate-600 mb-6'>
           Mumbai Experience Map.
         </h2>

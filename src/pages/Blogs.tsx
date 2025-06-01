@@ -97,8 +97,8 @@ const Blogs = () => {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      <div className='flex w-[1080px] justify-end'>
-        <div className='w-[50%] flex flex-col gap-10 mb-10'>
+      <div className='flex w-[90%] lg:w-[1080px] justify-end'>
+        <div className='w-full lg:w-[50%] flex flex-col gap-10 mb-10'>
           {news[activeSection].map((item, index) => {
             return (
               <div key={index} className='w-full flex flex-col'>

@@ -55,7 +55,7 @@ const BoardOfDirectors = () => {
       <BODHero />
       <BODHeading />
       {['Founders', 'Directors', 'Independent Directors'].map((team) => (
-        <div key={team} className='flex flex-col w-[1080px] my-8'>
+        <div key={team} className='flex flex-col w-[90%] lg:w-[1080px] my-8'>
           <p className='font-[100] text-slate-600 text-[40px] mb-8'>{team}.</p>
           {board[team] &&
             board[team].map((el, index) => (
@@ -63,15 +63,21 @@ const BoardOfDirectors = () => {
                 <p className='font-semibold text-slate-600 text-xl pb-0 pt-2'>
                   {el.name}
                 </p>
+                <div
+                  style={{
+                    backgroundImage: `url(${el.image})`
+                  }}
+                  className='w-full h-[400px] bg-center bg-cover bg-no-repeat lg:hidden block'
+                />
                 <div className='w-full flex justify-between py-0'>
-                  <div className='w-[750px] font-light text-slate-600 text-[15px] leading-5 prose'>
+                  <div className='w-full lg:w-[750px] font-light text-slate-600 text-[15px] leading-5 prose'>
                     <Markdown>{el.bio}</Markdown>
                   </div>
                   <div
                     style={{
                       backgroundImage: `url(${el.image})`
                     }}
-                    className='w-[250px] h-[250px] bg-center bg-cover bg-no-repeat'
+                    className='w-[250px] h-[250px] bg-center bg-cover bg-no-repeat hidden lg:block'
                   />
                 </div>
                 {index !== board[team].length - 1 && (

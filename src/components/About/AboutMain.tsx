@@ -54,7 +54,7 @@ const chartConfig = {
 
 const AboutMain = () => {
   return (
-    <div className='w-[1080px] flex gap-8'>
+    <div className='w-[90%] lg:w-[1080px] flex flex-col-reverse lg:flex-row gap-8'>
       <div className='min-w-[400px] h-[400px] rounded-sm flex flex-col'>
         <p className='text-sm font-semibold text-slate-600'>
           Summary of Diversity + Growth

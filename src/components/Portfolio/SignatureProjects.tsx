@@ -2,7 +2,7 @@ import React from 'react';
 
 const SignatureProjectsPortfolio = ({ projects, ref }) => {
   return (
-    <div className='flex flex-col w-[1080px] mb-10' ref={ref}>
+    <div className='flex flex-col w-[90%] lg:w-[1080px] mb-10' ref={ref}>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>
         Signature Projects.
       </h2>
@@ -12,7 +12,7 @@ const SignatureProjectsPortfolio = ({ projects, ref }) => {
           .map((el, index) => (
             <div
               key={index}
-              className='flex flex-col gap-2 w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
+              className='flex flex-col gap-2 w-[180px] lg:w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
             >
               <div
                 style={{

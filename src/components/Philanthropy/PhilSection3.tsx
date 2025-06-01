@@ -3,15 +3,15 @@ import Divider from '../Divider';
 
 const PhilSection3 = () => {
   return (
-    <div className='w-[1080px] flex flex-col mb-20 gap-6'>
-      <div className='w-full flex'>
-        <div className='w-[450px] font-light text-slate-500 text-4xl p-7 pt-0 pr-12'>
+    <div className='w-[90%] lg:w-[1080px] flex flex-col mb-20 gap-6'>
+      <div className='w-full flex flex-col lg:flex-row gap-6'>
+        <div className='w-full lg:w-[450px] font-light text-slate-500 text-4xl p-0 lg:p-7 pt-0 lg:pr-12'>
           <p>
             “The footprint we seek to leave for our next generation demands our
             custodianship of the natural environment...”
           </p>
         </div>
-        <div className='flex flex-col w-[630px] gap-2'>
+        <div className='flex flex-col w-full lg:w-[630px] gap-2'>
           <p className='font-light text-2xl text-slate-600'>
             Health and Well Being
           </p>

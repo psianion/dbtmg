@@ -11,9 +11,11 @@ const NewsHeading = ({
   const sections = ['In the News', 'Press Release', 'Video Coverage', 'Awards'];
 
   return (
-    <div className='flex flex-col w-[1080px]'>
-      <h1 className='text-8xl text-slate-600 font-thin my-6'>News & Awards.</h1>
-      <div className='w-full flex justify-between'>
+    <div className='flex flex-col w-[90%] lg:w-[1080px]'>
+      <h1 className='text-6xl lg:text-8xl text-slate-600 font-thin my-6'>
+        News & Awards.
+      </h1>
+      <div className='w-full flex flex-col-reverse lg:flex-row gap-5 justify-between'>
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
@@ -36,7 +38,9 @@ const NewsHeading = ({
           Rehabilitation”.
         </p>
       </div>
-      <Divider width={'400px'} />
+      <div className='w-[200px] lg:w-[400px]'>
+        <Divider />
+      </div>
     </div>
   );
 };

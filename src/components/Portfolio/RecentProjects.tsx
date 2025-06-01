@@ -7,7 +7,7 @@ const RecentProjectsPortfolio = ({ projects, ref }) => {
     navigate(path);
   };
   return (
-    <div className='flex flex-col w-[1080px]' ref={ref}>
+    <div className='flex flex-col w-[90%] lg:w-[1080px]' ref={ref}>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>
         Recent Projects.
       </h2>
@@ -16,7 +16,7 @@ const RecentProjectsPortfolio = ({ projects, ref }) => {
           <div
             key={index}
             onClick={() => handleNavigation(`/portfolio/${el.slug}`)}
-            className='flex flex-col gap-2 w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
+            className='flex flex-col gap-2 w-[180px] lg:w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
           >
             <div
               style={{

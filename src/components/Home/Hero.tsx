@@ -25,7 +25,7 @@ const heroData = [
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className='w-full h-full '>
+    <div className='w-full h-[60vh] lg:h-full '>
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         autoplay={{ delay: 7000, disableOnInteraction: false }}
@@ -40,11 +40,11 @@ const Hero = () => {
           <SwiperSlide key={src.id}>
             <div
               style={{ backgroundImage: `url(${src.image})` }}
-              className='h-[95vh] w-full bg-center bg-cover bg-no-repeat'
+              className='h-[60vh] lg:h-[95vh] w-full bg-center bg-cover bg-no-repeat'
             >
               <div className='flex items-center justify-center h-full bg-black/40'>
-                <div className='w-[1080px] flex items-end h-full pb-10 relative'>
-                  <h1 className='text-8xl text-white font-[100] w-[700px]'>
+                <div className='w-[90%] lg:w-[1080px] flex items-end h-full pb-10 relative'>
+                  <h1 className='text-5xl lg:text-8xl text-white font-[100] w-[700px]'>
                     {src.desc}
                   </h1>
                   <div className='absolute bottom-10 right-0 flex gap-1'>

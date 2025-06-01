@@ -127,8 +127,8 @@ const RecentProjectsSection = () => {
     'Mumbai Experience Map'
   ];
   return (
-    <div className='w-[1080px] flex flex-col gap-6 my-20'>
-      <div className='w-full flex items-start justify-between'>
+    <div className='w-[90%] lg:w-[1080px] flex flex-col gap-6 my-10 lg:my-20'>
+      <div className='w-full flex flex-col-reverse lg:flex-row items-start justify-between gap-6'>
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
@@ -144,7 +144,7 @@ const RecentProjectsSection = () => {
             </div>
           ))}
         </div>
-        <p className='w-[500px] text-sm font-light text-slate-600 leading-4.5'>
+        <p className='w-full lg:w-[500px] text-md lg:text-sm font-light text-slate-600 leading-4.5'>
           DB Realty (NSE: DB Realty) is a full service development company
           focusing on large scale, urban regeneration projects in the Mumbai
           Metropolitan Region. Our exclusive focus on brownfield development and
@@ -163,7 +163,7 @@ const RecentProjectsSection = () => {
         <div className=' w-full flex h-full gap-2'>
           <div
             onClick={canScrollLeft ? handleScrollLeft : undefined}
-            className={`w-[30px] h-[120px] flex items-center justify-center bg-slate-200 ${
+            className={`w-[30px] h-[120px] hidden lg:flex items-center justify-center bg-slate-200 ${
               !canScrollLeft
                 ? 'opacity-50 cursor-not-allowed'
                 : 'cursor-pointer'
@@ -197,7 +197,7 @@ const RecentProjectsSection = () => {
           </div>
           <div
             onClick={canScrollRight ? handleScrollRight : undefined}
-            className={`w-[30px] h-[120px] flex items-center justify-center bg-slate-200 ${
+            className={`w-[30px] h-[120px] hidden lg:flex items-center justify-center bg-slate-200 ${
               !canScrollRight
                 ? 'opacity-50 cursor-not-allowed'
                 : 'cursor-pointer'
@@ -211,7 +211,7 @@ const RecentProjectsSection = () => {
         <div className='w-full flex h-full gap-2'>
           <div
             onClick={canScrollLeftSig ? handleScrollLeftSig : undefined}
-            className={`w-[30px] h-[120px] flex items-center justify-center bg-slate-200 ${
+            className={`w-[30px] h-[120px] hidden lg:flex items-center justify-center bg-slate-200 ${
               !canScrollLeftSig
                 ? 'opacity-50 cursor-not-allowed'
                 : 'cursor-pointer'
@@ -249,7 +249,7 @@ const RecentProjectsSection = () => {
           </div>
           <div
             onClick={canScrollRightSig ? handleScrollRightSig : undefined}
-            className={`w-[30px] h-[120px] flex items-center justify-center bg-slate-200 ${
+            className={`w-[30px] h-[120px] hidden lg:flex items-center justify-center bg-slate-200 ${
               !canScrollRightSig
                 ? 'opacity-50 cursor-not-allowed'
                 : 'cursor-pointer'

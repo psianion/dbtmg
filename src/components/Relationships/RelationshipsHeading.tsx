@@ -106,9 +106,11 @@ const RelationshipsHeading = () => {
     return <div>Loading Relationships...</div>;
   }
   return (
-    <div className='flex flex-col w-[1080px]'>
-      <h1 className='text-8xl text-slate-600 font-thin my-6'>Relationships.</h1>
-      <div className='w-full flex justify-between'>
+    <div className='flex flex-col w-[90%] lg:w-[1080px]'>
+      <h1 className='text-6xl lg:text-8xl text-slate-600 font-thin my-6'>
+        Relationships.
+      </h1>
+      <div className='w-full flex flex-col-reverse lg:flex-row gap-5 justify-between'>
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
@@ -129,7 +131,9 @@ const RelationshipsHeading = () => {
           COMMUNITY, INVESTOR AND END‑USER NEEDS.
         </p>
       </div>
-      <Divider width={'400px'} />
+      <div className='w-[200px] lg:w-[400px]'>
+        <Divider />
+      </div>
       <div className='flex flex-col w-full mb-10 text-slate-600'>
         {data.map((item, index) => (
           <div key={index} className='flex flex-col gap-4' ref={item.ref}>
@@ -141,7 +145,7 @@ const RelationshipsHeading = () => {
                   style={{
                     backgroundImage: `url(${item.images[index]})`
                   }}
-                  className='w-[200px] h-[100px] bg-center bg-contain bg-no-repeat'
+                  className='w-[180px] lg:w-[200px] h-[100px] bg-center bg-contain bg-no-repeat'
                 />
               ))}
             </div>

@@ -58,6 +58,15 @@ const BlogDetails = () => {
     fetchNewDetails();
   }, []);
 
+  function getYouTubeEmbedUrl(url) {
+    if (!url) return null;
+    // Match standard and short YouTube URLs
+    const match = url.match(
+      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+    );
+    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+  }
+
   if (loading) return <p>Loading...</p>;
 
   return (
@@ -65,17 +74,33 @@ const BlogDetails = () => {
       <Nav />
       <NewsHero />
       <NewsHeading setActiveSection={() => navigate('/news')} />
-      <div className='flex w-[1080px] justify-between'>
-        {!details.image ? (
-          <div className='w-[50%]'>Image Placeholder</div>
-        ) : (
-          <div
-            style={{ backgroundImage: `url(${details.image})` }}
-            className='w-[50%] max-w-[400px] max-h-[300px] bg-cover bg-center bg-no-repeat'
-          />
-        )}
+      <div className='flex flex-col lg:flex-row w-[90%] lg:w-[1080px] justify-between'>
+        <div className='flex flex-col w-full lg:w-[50%] max-w-[400px]'>
+          {details.hyperlink && getYouTubeEmbedUrl(details.hyperlink) && (
+            <div className='w-full flex justify-center mb-8'>
+              <iframe
+                width='400'
+                height='fit'
+                src={getYouTubeEmbedUrl(details.hyperlink)}
+                title='YouTube video'
+                frameBorder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+                className='rounded-lg w-full max-w-[400px] aspect-video'
+              ></iframe>
+            </div>
+          )}
+          {!details.image ? (
+            <div className='w-[50%]'>Image Placeholder</div>
+          ) : (
+            <div
+              style={{ backgroundImage: `url(${details.image})` }}
+              className='w-[50%] max-w-[400px] max-h-[300px] bg-cover bg-center bg-no-repeat'
+            />
+          )}
+        </div>
 
-        <div className='w-[50%] flex flex-col gap-10 mb-10'>
+        <div className='w-full lg:w-[50%] flex flex-col gap-10 mb-10'>
           <div className='flex flex-col gap-1'>
             <p className='font-light text-[12px] text-slate-500 uppercase'>
               {format(new Date(details.date), 'MMMM dd, yyyy')}

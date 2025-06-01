@@ -13,9 +13,11 @@ const AboutHeading = ({ ref }: { ref: React.RefObject<HTMLDivElement> }) => {
   };
 
   return (
-    <div className='flex flex-col w-[1080px]'>
-      <h1 className='text-8xl text-slate-600 font-thin my-6'>About.</h1>
-      <div className='w-full flex justify-between'>
+    <div className='flex flex-col w-[90%] lg:w-[1080px]'>
+      <h1 className='text-6xl lg:text-8xl text-slate-600 font-thin my-6'>
+        About.
+      </h1>
+      <div className='w-full flex flex-col-reverse lg:flex-row gap-5 justify-between'>
         <div className='flex flex-col gap-1'>
           {sections.map((section) => (
             <div
@@ -31,13 +33,15 @@ const AboutHeading = ({ ref }: { ref: React.RefObject<HTMLDivElement> }) => {
             </div>
           ))}
         </div>
-        <p className='w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase'>
+        <p className='w-[400px] text-right text-sm font-light text-red-600 leading-5 lg:leading-4 uppercase'>
           MUMBAI METROPOLITAN REGION FOCUS, EXPERIENCED MANAGEMENT AND LONG TERM
           LOCAL RELATIONSHIPS HAVE BEEN THE KEYS TO VALOR’S{' '}
           <b className='font-semibold'>25‑year track record</b> of success.
         </p>
       </div>
-      <Divider width={'400px'} />
+      <div className='w-[200px] lg:w-[400px]'>
+        <Divider />
+      </div>
     </div>
   );
 };
