@@ -52,11 +52,13 @@ const AboutDetails = () => {
     <div className='flex flex-col items-center justify-center min-h-screen bg-slate-50'>
       <Nav />
       <AboutHero />
-      <div className='flex flex-col w-[1080px]'>
-        <p className='font-[100] text-[60px] mt-8'>{details?.name}</p>
+      <div className='flex flex-col w-[90%] lg:w-[1080px]'>
+        <p className='font-[100] text-[40px] lg:text-[60px] mt-8'>
+          {details?.name}
+        </p>
         <p className='text-[15px] font-medium'>{details?.designation}</p>
-        <div className='flex gap-8 mt-8'>
-          <div className='w-[683px] text-[15px] font-light'>
+        <div className='flex flex-col-reverse lg:flex-row gap-8 mt-8'>
+          <div className='w-full lg:w-[683px] text-[15px] font-light'>
             {documentToReactComponents(details?.bio, richTextOptions)}
           </div>
           <div

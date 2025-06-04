@@ -5,63 +5,45 @@ const PhilSection1 = () => {
   return (
     <div className='w-[90%] lg:w-[1080px] flex flex-col gap-6'>
       <div className='w-full flex flex-col lg:flex-row gap-6'>
-        <div className='w-full lg:w-[450px] font-light text-slate-500 text-4xl p-0 lg:p-7 pt-0 lg:pr-12'>
-          <p>Caring for Our Communities and the Region</p>
+        <div className='w-full lg:w-[450px] p-0 lg:p-7 lg:pt-0 pt-0 lg:pr-12'>
+          <p className='font-light text-slate-500 text-4xl'>
+            “True development begins where compassion meets commitment. Our
+            communities deserve both.”
+          </p>
+          <span className='font-light text-md text-slate-600 mt-2'>
+            — <b>Shahid Usman Balwa</b>, Director, Valor Estate Ltd.
+          </span>
         </div>
         <div className='flex flex-col w-full lg:w-[630px] gap-2'>
           <p className='font-light text-2xl text-slate-600'>
-            Housing, Community and the Arts
+            Investing in Rural Education
           </p>
           <p className='font-light text-sm text-slate-600 mb-2'>
-            As developers, we remain committed to ensuring equal housing
-            opportunities throughout our region. This commitment is reflected
-            not only in our advocacy but also in our hands-on participation in
-            the construction and reconstruction of community properties, as well
-            as our support for organizations that champion innovative approaches
-            to housing affordability across physical and geographic barriers.
+            The N.M. Balwa Higher Secondary School in Pirojpura, sponsored by
+            the Balwa Charitable Trust (Mumbai) and managed by the Balwa
+            Education Trust, has emerged as a highly respected co-educational
+            institution in the region. Plans are underway to expand educational
+            infrastructure in Pirojpura with a vision to serve over 10,000
+            students in the near future. These educational initiatives are more
+            than symbolic—they represent a strategic investment in India’s
+            future. Education is viewed not just as empowerment, but as a form
+            of social justice—ensuring every child has access to opportunity
+            regardless of background or geography.
+          </p>
+          <p className='font-light text-2xl text-slate-600'>
+            Slum Rehabilitation and Social Infrastructure
           </p>
           <p className='font-light text-sm text-slate-600 mb-2'>
-            In October 2017, Michael Covarrubias co-launched a public-private
-            partnership with SV@Home, The San Francisco Foundation, the
-            Metropolitan Transportation Commission (MTC), and the Association of
-            Bay Area Governments (ABAG), forming "CASA – The Committee to House
-            the Bay Area." With Denise Pinkston chairing the Production
-            Committee, the initiative brought together 50 stakeholders from Bay
-            Area housing, for-profit and nonprofit sectors, political and equity
-            groups, corporate leaders, labor organizations, and real estate
-            developers. The shared goal was to unite diverse voices to address
-            the region’s pressing housing challenges. This collaboration
-            resulted in the CASA Compact, a 15-year emergency housing plan now
-            being advanced to the state legislature. Furthering this mission,
-            Pinkston co-founded and now serves as Board President of the Casita
-            Coalition, an organization that advocates for increased housing
-            choice through small homes—ADUs, cottage clusters, and
-            duplexes—throughout California.
-          </p>
-          <p className='font-light text-sm text-slate-600 mb-2'>
-            In parallel with our housing efforts, we are equally devoted to
-            supporting culture and the arts. We believe that the appreciation
-            and preservation of music, dance, theater, and visual arts are
-            essential to social and philosophical development. Our support for
-            arts institutions helps sustain the creators and their works,
-            fostering greater well-being, understanding, and inspiration across
-            communities.
-          </p>
-          <p className='font-light text-sm text-slate-600'>
-            Our recent contributions and involvement in organizations dedicated
-            to Housing, Community, and the Arts include: San Francisco Housing
-            Action Coalition, Urban Solutions, TransForm, San Francisco Parks
-            Alliance, Market Street Association, Chinese American Voters
-            Education Committee, Habitat for Humanity Greater San Francisco,
-            Tenderloin Neighborhood Development Corporation, Non-Profit Housing
-            Association of Northern California, Berkeley Rep Theatre, California
-            Housing Consortium, Oakland Art Murmur, Tipping Point, San Francisco
-            Ballet, San Francisco Heritage, St. Anthony's, SPUR, ULI Foundation,
-            BANDALOOP, Oakland Ballet, Corporation of the Fine Arts Museum,
-            Glide Memorial, Project Open Hand, SF-Marin Food Bank, Festival Napa
-            Valley, North Beach Citizens, Friends of San Francisco City,
-            Enterprise Community Partners, SF Made, SFJazz, and the Flight
-            Deck/Ragged Wing Ensemble in Oakland.
+            Valor Estate Ltd. has also demonstrated its unwavering commitment to
+            inclusive urban development through landmark social infrastructure
+            projects. The company’s execution of the 8 million sq. ft. Slum
+            Rehabilitation Project at Mahul, Mumbai, stands as a testament to
+            this ethos. Developed and handed over to the Government of
+            Maharashtra, this large-scale project reflects the company’s belief
+            in dignified housing as a fundamental right. Notably, the project
+            was undertaken not just as a statutory responsibility, but as a
+            moral imperative—one that echoed the values of community upliftment
+            and nation-building.
           </p>
         </div>
       </div>
