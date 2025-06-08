@@ -5,133 +5,150 @@ import { useNavigate } from 'react-router-dom';
 import { PiXLogo } from 'react-icons/pi';
 import { FaFacebookF, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
 import { Menu, X } from 'lucide-react';
+import HowWeThinkMobile from '@/pages/HowWeThinkMobile';
 
 const NavMobile = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
   const navigate = useNavigate();
   const handleNavigation = (path: string) => {
     navigate(path);
     setIsOpen(false);
   };
 
-  const defaultStyle = `w-full font-[200] text-xl text-slate-500 hover:bg-slate-100 cursor-pointer`;
+  const defaultStyle = `w-fit font-[200] text-xl text-slate-500 hover:bg-slate-100 cursor-pointer px-2`;
   return (
-    <div
-      className={`w-[95%] flex flex-col absolute top-2 z-10 p-2 ${
-        isOpen ? 'bg-white backdrop-blur-md' : ''
-      }`}
-    >
-      <div className='flex items-start justify-between w-full'>
-        <div
-          onClick={() => handleNavigation('/')}
-          className='w-[150px] h-[50px] cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat'
-        ></div>
-        <div
-          className='w-10 h-10 flex items-center justify-center bg-white'
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X className='text-slate-500' />
-          ) : (
-            <Menu className='text-slate-500' />
-          )}
+    <>
+      <div
+        className={`w-[95%] flex flex-col absolute top-2 z-10 p-2 ${
+          isOpen ? 'bg-white backdrop-blur-md' : ''
+        }`}
+      >
+        <div className='flex items-start justify-between w-full'>
+          <div
+            onClick={() => handleNavigation('/')}
+            className='w-[150px] h-[50px] cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat'
+          ></div>
+          <div
+            className='w-10 h-10 flex items-center justify-center bg-white'
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <X className='text-slate-500' />
+            ) : (
+              <Menu className='text-slate-500' />
+            )}
+          </div>
         </div>
+        {isOpen && (
+          <div className='flex flex-col gap-2 mt-4'>
+            <div
+              onClick={() => handleNavigation('/about')}
+              className={defaultStyle}
+            >
+              About
+            </div>
+            <div
+              onClick={() => handleNavigation('/portfolio')}
+              className={defaultStyle}
+            >
+              Portfolio
+            </div>
+            <div
+              onClick={() => handleNavigation('/board-of-directors')}
+              className={defaultStyle}
+            >
+              Board of Directors
+            </div>
+            <div
+              onClick={() => handleNavigation('/relationships')}
+              className={defaultStyle}
+            >
+              Relationships
+            </div>
+            <div
+              onClick={() => handleNavigation('/philanthropy')}
+              className={defaultStyle}
+            >
+              Philanthropy
+            </div>
+            <div
+              onClick={() => handleNavigation('/investor-relations')}
+              className={defaultStyle}
+            >
+              Investor Relations
+            </div>
+            <div
+              onClick={() => handleNavigation('/news')}
+              className={defaultStyle}
+            >
+              News & Awards
+            </div>
+            <div
+              onClick={() => {
+                setIsModalOpen(true);
+                setIsOpen(false);
+              }}
+              className={cn(
+                defaultStyle,
+                'bg-red-500 hover:bg-red-400 text-white py-1 px-3'
+              )}
+            >
+              How We Think
+            </div>
+            <div className='flex flex-col gap-0 mt-2'>
+              <p
+                className={cn(defaultStyle, 'text-md')}
+                onClick={() => handleNavigation('/')}
+              >
+                Valor Estate Limited
+              </p>
+              <p className={cn(defaultStyle, 'text-md')}>
+                7th Floor, Resham Bhavan, Veer Nariman Road
+              </p>
+              <p className={cn(defaultStyle, 'text-md')}>
+                Churchgate, Mumbai, MH 400020
+              </p>
+            </div>
+            <div className='flex flex-col gap-0 mt-2'>
+              <p className={cn(defaultStyle, 'text-md')}>investors@dbg.co.in</p>
+              <p className={cn(defaultStyle, 'text-md')}>+91 22 49742706 T</p>
+            </div>
+            <div className='w-full my-3 flex items-center'>
+              <div
+                className='w-6 h-6 cursor-pointer'
+                onClick={() => window.open('https://x.com/dbreality', '_blank')}
+              >
+                <PiXLogo className='w-full h-full text-slate-400' />
+              </div>
+              <div
+                className='w-6 h-5 cursor-pointer'
+                onClick={() =>
+                  window.open(
+                    'https://www.facebook.com/profile.php?id=100063612379380',
+                    '_blank'
+                  )
+                }
+              >
+                <FaFacebookF className='w-full h-full text-slate-400' />
+              </div>
+              <div
+                className='w-6 h-6 cursor-pointer'
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/company/db-realty-ltd/',
+                    '_blank'
+                  )
+                }
+              >
+                <FaLinkedinIn className='w-full h-full text-slate-400' />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-      {isOpen && (
-        <div className='flex flex-col gap-2 mt-4'>
-          <div
-            onClick={() => handleNavigation('/about')}
-            className={defaultStyle}
-          >
-            About
-          </div>
-          <div
-            onClick={() => handleNavigation('/portfolio')}
-            className={defaultStyle}
-          >
-            Portfolio
-          </div>
-          <div
-            onClick={() => handleNavigation('/board-of-directors')}
-            className={defaultStyle}
-          >
-            Board of Directors
-          </div>
-          <div
-            onClick={() => handleNavigation('/relationships')}
-            className={defaultStyle}
-          >
-            Relationships
-          </div>
-          <div
-            onClick={() => handleNavigation('/philanthropy')}
-            className={defaultStyle}
-          >
-            Philanthropy
-          </div>
-          <div
-            onClick={() => handleNavigation('/investor-relations')}
-            className={defaultStyle}
-          >
-            Investor Relations
-          </div>
-          <div
-            onClick={() => handleNavigation('/news')}
-            className={defaultStyle}
-          >
-            News & Awards
-          </div>
-          <div className='flex flex-col gap-0 mt-2'>
-            <p
-              className={cn(defaultStyle, 'text-md')}
-              onClick={() => handleNavigation('/')}
-            >
-              Valor Estate Limited
-            </p>
-            <p className={cn(defaultStyle, 'text-md')}>
-              7th Floor, Resham Bhavan, Veer Nariman Road
-            </p>
-            <p className={cn(defaultStyle, 'text-md')}>
-              Churchgate, Mumbai, MH 400020
-            </p>
-          </div>
-          <div className='flex flex-col gap-0 mt-2'>
-            <p className={cn(defaultStyle, 'text-md')}>investors@dbg.co.in</p>
-            <p className={cn(defaultStyle, 'text-md')}>+91 22 49742706 T</p>
-          </div>
-          <div className='w-full my-3 flex items-center'>
-            <div
-              className='w-6 h-6 cursor-pointer'
-              onClick={() => window.open('https://x.com/dbreality', '_blank')}
-            >
-              <PiXLogo className='w-full h-full text-slate-400' />
-            </div>
-            <div
-              className='w-6 h-5 cursor-pointer'
-              onClick={() =>
-                window.open(
-                  'https://www.facebook.com/profile.php?id=100063612379380',
-                  '_blank'
-                )
-              }
-            >
-              <FaFacebookF className='w-full h-full text-slate-400' />
-            </div>
-            <div
-              className='w-6 h-6 cursor-pointer'
-              onClick={() =>
-                window.open(
-                  'https://www.linkedin.com/company/db-realty-ltd/',
-                  '_blank'
-                )
-              }
-            >
-              <FaLinkedinIn className='w-full h-full text-slate-400' />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      {isModalOpen && <HowWeThinkMobile setIsModalOpen={setIsModalOpen} />}
+    </>
   );
 };
 const Nav = ({ activePage }: { activePage?: string }) => {
