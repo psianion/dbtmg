@@ -12,8 +12,8 @@ const FooterMobile = () => {
   return (
     <div className='w-[90%] mt-auto flex lg:hidden flex-col gap-3 justify-center mb-8'>
       <div className='flex items-center justify-between gap-2'>
-        <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat mt-1' />
-        <div className='w-[70px] h-[70px] rounded-sm bg-slate-200 bg-[url(/25years.webp)] bg-center bg-cover bg-no-repeat ' />
+        <div className='w-[250px] h-[70px] rounded-sm bg-transparent bg-[url(/DB_LOGO.png)] bg-center bg-cover bg-no-repeat mt-1' />
+        <div className='w-[70px] h-[70px] rounded-sm  bg-[url(/25years.png)] bg-transparent bg-center bg-cover bg-no-repeat ' />
       </div>
       <div className='flex flex-col gap-0 mt-2'>
         <p className={cn(defaultStyle)} onClick={() => handleNavigation('/')}>
@@ -167,8 +167,8 @@ const Footer = () => {
             </p>
           </div>
           <div className='flex items-center gap-2'>
-            <div className='w-[70px] h-[70px] rounded-sm bg-slate-200 bg-[url(/25years.webp)] bg-center bg-cover bg-no-repeat ' />
-            <div className='w-[250px] h-[70px] rounded-sm bg-slate-200 bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat mt-1' />
+            <div className='w-[70px] h-[70px] rounded-sm bg-transparent bg-[url(/25years.png)] bg-center bg-cover bg-no-repeat ' />
+            <div className='w-[250px] h-[70px] rounded-sm bg-transparent bg-[url(/DB_LOGO.png)] bg-center bg-cover bg-no-repeat mt-1' />
           </div>
         </div>
         <div className='flex items-center gap-2'>

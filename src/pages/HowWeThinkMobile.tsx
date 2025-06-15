@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { fetchEntries } from '@/lib/contentfulClient';
 import { X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';

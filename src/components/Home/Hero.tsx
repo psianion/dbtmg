@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/bundle';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper';
 
 const images = ['/hero/hero1.webp', '/hero/hero1.webp', '/hero/hero1.webp'];
 
@@ -21,9 +22,11 @@ const heroData = [
   { id: 3, image: '/hero/hero3.webp', desc: 'Transforming urban districts' },
   { id: 4, image: '/hero/hero4.webp', desc: 'Bringing jobs closer to transit' }
 ];
-//HelveticaNeue
+
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
+
   return (
     <div className='w-full h-[60vh] lg:h-full '>
       <Swiper
@@ -34,7 +37,7 @@ const Hero = () => {
         fadeEffect={{ crossFade: true }}
         className='h-[95vh]'
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {heroData.map((src) => (
           <SwiperSlide key={src.id}>
@@ -51,7 +54,11 @@ const Hero = () => {
                     {heroData.map((_, index) => (
                       <div
                         key={index}
-                        className={`w-2.5 h-2.5 ${
+                        onClick={() => {
+                          setActiveIndex(index);
+                          swiperRef.current?.slideToLoop(index);
+                        }}
+                        className={`w-2.5 h-2.5 cursor-pointer ${
                           activeIndex === index ? 'bg-red-500' : 'bg-white'
                         }`}
                       />

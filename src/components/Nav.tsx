@@ -225,7 +225,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
             >
               How We Think
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 w-[170px] justify-end'>
               <div
                 className='w-6 h-6 cursor-pointer'
                 onClick={() => window.open('https://x.com/dbreality', '_blank')}

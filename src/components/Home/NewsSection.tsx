@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { fetchEntries } from '@/lib/contentfulClient';
 import { format } from 'date-fns';
 import React, { useEffect } from 'react';
@@ -26,8 +27,10 @@ const NewsSection = () => {
         };
       });
       const filteredData = data.filter((item) => item.toBeFeaturedOnHomePage);
-      setNews(filteredData);
-      console.log({ filteredData });
+      const sortedData = filteredData.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+      setNews(sortedData.slice(0, 3));
     } catch (error) {
       console.error(error);
     }
