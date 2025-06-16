@@ -25,9 +25,11 @@ const SignatureProjectsPortfolio = ({ projects, ref }) => {
                 <p className='font-light text-xs uppercase text-slate-600'>
                   {el.city}
                 </p>
-                <p className='font-light text-xs text-slate-600'>
-                  {`${el.area} sq. ft.`}
-                </p>
+                {el.areaText && (
+                  <p className='font-light text-xs text-slate-600'>
+                    {el.areaText}
+                  </p>
+                )}
               </div>
             </div>
           ))}

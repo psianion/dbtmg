@@ -56,9 +56,11 @@ const PortfolioDetails = () => {
           <p className='font-light text-sm uppercase text-slate-600'>
             {project.fields.city}
           </p>
-          <p className='font-light text-sm uppercase text-slate-600'>
-            {project.fields.area} Sq Ft
-          </p>
+          {project.fields.areaText && (
+            <p className='font-light text-sm uppercase text-slate-600'>
+              {project.fields.areaText}
+            </p>
+          )}
         </div>
         <p className='font-thin text-7xl text-slate-600 mb-2'>
           {project.fields.name}
@@ -81,7 +83,7 @@ const PortfolioDetails = () => {
                 style={{
                   backgroundImage: `url(https:${image})`
                 }}
-                className={`w-[100px] h-[80px] bg-center bg-cover bg-no-repeat mb-2 cursor-pointer ${
+                className={`w-[100px] h-[80px] bg-center bg-cover bg-no-repeat cursor-pointer ${
                   index === activeImage ? 'border-2 border-red-600' : ''
                 }`}
               />

@@ -27,9 +27,11 @@ const RecentProjectsPortfolio = ({ projects, ref }) => {
             <div className='flex flex-col gap-0'>
               <p className='font-semibold text-sm'>{el.name}</p>
               <p className='font-light text-xs text-slate-600'>{el.city}</p>
-              <p className='font-light text-xs text-slate-600'>
-                {`${el.area} sq. mt.`}
-              </p>
+              {el.areaText && (
+                <p className='font-light text-xs text-slate-600'>
+                  {el.areaText}
+                </p>
+              )}
             </div>
           </div>
         ))}

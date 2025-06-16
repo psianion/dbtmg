@@ -28,7 +28,8 @@ const Portfolio = () => {
           area: item.fields.area,
           image: `https:${item.fields.images[0].fields.file.url}`,
           isSignature: item.fields.isSignatureProject || false,
-          location: item.fields.location
+          location: item.fields.location,
+          areaText: item.fields.areaText || ''
         };
       });
       setProjects(data);
