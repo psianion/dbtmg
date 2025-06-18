@@ -228,29 +228,29 @@ const Nav = ({ activePage }: { activePage?: string }) => {
             <div className='flex items-center gap-2 w-[170px] justify-end'>
               <div
                 className='w-6 h-6 cursor-pointer'
-                onClick={() => window.open('https://x.com/dbreality', '_blank')}
+                // onClick={() => window.open('https://x.com/dbreality', '_blank')}
               >
                 <PiXLogo className='w-full h-full text-slate-200' />
               </div>
               <div
                 className='w-6 h-5 cursor-pointer'
-                onClick={() =>
-                  window.open(
-                    'https://www.facebook.com/profile.php?id=100063612379380',
-                    '_blank'
-                  )
-                }
+                // onClick={() =>
+                //   window.open(
+                //     'https://www.facebook.com/profile.php?id=100063612379380',
+                //     '_blank'
+                //   )
+                // }
               >
                 <FaFacebookF className='w-full h-full text-slate-200' />
               </div>
               <div
                 className='w-6 h-6 cursor-pointer'
-                onClick={() =>
-                  window.open(
-                    'https://www.linkedin.com/company/db-realty-ltd/',
-                    '_blank'
-                  )
-                }
+                // onClick={() =>
+                //   window.open(
+                //     'https://www.linkedin.com/company/db-realty-ltd/',
+                //     '_blank'
+                //   )
+                // }
               >
                 <FaLinkedinIn className='w-full h-full text-slate-200' />
               </div>
