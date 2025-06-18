@@ -29,10 +29,12 @@ const Portfolio = () => {
           image: `https:${item.fields.images[0].fields.file.url}`,
           isSignature: item.fields.isSignatureProject || false,
           location: item.fields.location,
-          areaText: item.fields.areaText || ''
+          areaText: item.fields.areaText || '',
+          rank: item.fields.rank || 0
         };
       });
-      setProjects(data);
+      const sortedData = data.sort((a, b) => a.rank - b.rank);
+      setProjects(sortedData);
       setLoading(false);
     } catch (error) {
       console.error(error);

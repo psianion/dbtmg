@@ -75,7 +75,7 @@ const PortfolioDetails = () => {
           className={`w-full h-[520px] bg-center bg-cover bg-no-repeat mb-10`}
         />
         <div className='w-full flex'>
-          <div className='w-[400px] flex gap-2 flex-wrap'>
+          <div className='w-[400px] flex items-start flex-wrap gap-2 h-fit'>
             {images.map((image, index) => (
               <div
                 onClick={() => setActiveImage(index)}
