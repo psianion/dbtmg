@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignatureProjectsPortfolio = ({ projects, ref }) => {
+  const navigate = useNavigate();
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
   return (
     <div className='flex flex-col w-[90%] lg:w-[1080px] mb-10' ref={ref}>
       <h2 className='text-lg font-semibold text-slate-600 mb-6'>
@@ -12,6 +17,7 @@ const SignatureProjectsPortfolio = ({ projects, ref }) => {
           .map((el, index) => (
             <div
               key={index}
+              onClick={() => handleNavigation(`/portfolio/${el.slug}`)}
               className='flex flex-col gap-2 w-[180px] lg:w-[200px] text-slate-600 hover:text-red-700 cursor-pointer'
             >
               <div

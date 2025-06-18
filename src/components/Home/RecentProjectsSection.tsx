@@ -2,6 +2,7 @@ import { fetchEntries } from '@/lib/contentfulClient';
 import React, { useEffect, useRef, useState } from 'react';
 import ProjectMap from '../Map';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const RecentProjectsSection = () => {
   const [activeSection, setActiveSection] = React.useState('Recent Projects');
@@ -19,6 +20,11 @@ const RecentProjectsSection = () => {
   const scrollRefSig = useRef<HTMLDivElement>(null);
 
   const scrollByAmount = 1040;
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
 
   // --- Recent Projects Scroll Logic ---
   const checkScroll = () => {
@@ -82,7 +88,9 @@ const RecentProjectsSection = () => {
           area: item.fields.area,
           image: `https:${item.fields.images[0].fields.file.url}`,
           isSignature: item.fields.isSignatureProject || false,
-          location: item.fields.location
+          location: item.fields.location,
+          areaText: item.fields.areaText || '',
+          rank: item.fields.rank || 0
         };
       });
       setProjects(data);
@@ -176,7 +184,11 @@ const RecentProjectsSection = () => {
             ref={scrollRef}
           >
             {projects.map((el, index) => (
-              <div className='min-w-[200px] flex flex-col gap-2' key={index}>
+              <div
+                className='min-w-[200px] flex flex-col gap-2 cursor-pointer'
+                key={index}
+                onClick={() => handleNavigation(`/portfolio/${el.slug}`)}
+              >
                 <div
                   className='w-full h-[120px] bg-center bg-cover bg-no-repeat'
                   style={{
@@ -188,9 +200,11 @@ const RecentProjectsSection = () => {
                     {el.name}
                   </p>
                   <p className='font-light text-sm text-slate-600'>{el.city}</p>
-                  <p className='font-light text-sm text-slate-600'>
-                    {`${el.area} sq. mt.`}
-                  </p>
+                  {el.areaText && (
+                    <p className='font-light text-sm text-slate-600'>
+                      {el.areaText}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -226,7 +240,11 @@ const RecentProjectsSection = () => {
             {projects
               .filter((el) => el.isSignature)
               .map((el, index) => (
-                <div className='min-w-[200px] flex flex-col gap-2' key={index}>
+                <div
+                  className='min-w-[200px] flex flex-col gap-2 cursor-pointer'
+                  onClick={() => handleNavigation(`/portfolio/${el.slug}`)}
+                  key={index}
+                >
                   <div
                     className='w-full h-[120px] bg-center bg-cover bg-no-repeat'
                     style={{
@@ -240,9 +258,11 @@ const RecentProjectsSection = () => {
                     <p className='font-light text-sm text-slate-600'>
                       {el.city}
                     </p>
-                    <p className='font-light text-sm text-slate-600'>
-                      {`${el.area} sq. ft.`}
-                    </p>
+                    {el.areaText && (
+                      <p className='font-light text-sm text-slate-600'>
+                        {el.areaText}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
