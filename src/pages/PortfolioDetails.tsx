@@ -44,7 +44,7 @@ const PortfolioDetails = () => {
     <div className='flex flex-col items-center justify-center min-h-screen bg-slate-50'>
       <Nav />
       <PortfolioHero />
-      <div className='flex flex-col w-[1080px] mt-10'>
+      <div className='flex flex-col w-[90%] lg:w-[1080px] mt-10'>
         <div
           onClick={() => navigate('/portfolio')}
           className={`border-l-6 h-[25px] flex items-center border-solid pl-4 cursor-pointer text-lg border-red-600 text-red-600 font-semibold`}
@@ -62,7 +62,7 @@ const PortfolioDetails = () => {
             </p>
           )}
         </div>
-        <p className='font-thin text-7xl text-slate-600 mb-2'>
+        <p className='font-thin text-5xl lg:text-7xl text-slate-600 mb-2 mt-4 lg:mt-0'>
           {project.fields.name}
         </p>
         <p className='font-light text-lg text-slate-600 mb-8'>
@@ -72,10 +72,10 @@ const PortfolioDetails = () => {
           style={{
             backgroundImage: `url(https:${images[activeImage]})`
           }}
-          className={`w-full h-[520px] bg-center bg-cover bg-no-repeat mb-10`}
+          className={`w-full h-[300px] lg:h-[520px] bg-center bg-cover bg-no-repeat mb-10`}
         />
-        <div className='w-full flex'>
-          <div className='w-[400px] flex items-start flex-wrap gap-2 h-fit'>
+        <div className='w-full flex flex-col lg:flex-row'>
+          <div className='w-full lg:w-[400px] flex items-start flex-wrap gap-2 h-fit'>
             {images.map((image, index) => (
               <div
                 onClick={() => setActiveImage(index)}
@@ -89,7 +89,7 @@ const PortfolioDetails = () => {
               />
             ))}
           </div>
-          <div className='flex flex-col w-[680px] gap-2'>
+          <div className='flex flex-col w-full lg:w-[680px] gap-2'>
             <div className='font-light prose text-slate-600 mb-10'>
               {documentToReactComponents(
                 project.fields.description,
