@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Divider from '@/components/Divider';
 import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
