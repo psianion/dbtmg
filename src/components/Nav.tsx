@@ -114,7 +114,7 @@ const NavMobile = () => {
               <p className={cn(defaultStyle, 'text-md')}>investors@dbg.co.in</p>
               <p className={cn(defaultStyle, 'text-md')}>+91 22 49742706 T</p>
             </div>
-            <div className='w-full my-3 flex items-center'>
+            {/* <div className='w-full my-3 flex items-center'>
               <div
                 className='w-6 h-6 cursor-pointer'
                 onClick={() => window.open('https://x.com/dbreality', '_blank')}
@@ -143,7 +143,7 @@ const NavMobile = () => {
               >
                 <FaLinkedinIn className='w-full h-full text-slate-400' />
               </div>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
@@ -225,47 +225,47 @@ const Nav = ({ activePage }: { activePage?: string }) => {
             >
               How We Think
             </div>
-            <div className='flex items-center gap-2 w-[170px] justify-end'>
+            {/* <div className='flex items-center gap-2 w-[170px] justify-end'>
               <div
                 className='w-6 h-6 cursor-pointer'
-                // onClick={() => window.open('https://x.com/dbreality', '_blank')}
+                onClick={() => window.open('https://x.com/dbreality', '_blank')}
               >
                 <PiXLogo className='w-full h-full text-slate-200' />
               </div>
               <div
                 className='w-6 h-5 cursor-pointer'
-                // onClick={() =>
-                //   window.open(
-                //     'https://www.facebook.com/profile.php?id=100063612379380',
-                //     '_blank'
-                //   )
-                // }
+                onClick={() =>
+                  window.open(
+                    'https://www.facebook.com/profile.php?id=100063612379380',
+                    '_blank'
+                  )
+                }
               >
                 <FaFacebookF className='w-full h-full text-slate-200' />
               </div>
               <div
                 className='w-6 h-6 cursor-pointer'
-                // onClick={() =>
-                //   window.open(
-                //     'https://www.linkedin.com/company/db-realty-ltd/',
-                //     '_blank'
-                //   )
-                // }
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/company/db-realty-ltd/',
+                    '_blank'
+                  )
+                }
               >
                 <FaLinkedinIn className='w-full h-full text-slate-200' />
               </div>
-              {/* <div
-              className='w-6 h-6 cursor-pointer'
-              onClick={() =>
-                window.open(
-                  'https://www.linkedin.com/company/db-realty-ltd/',
-                  '_blank'
-                )
-              }
-            >
-              <FaYoutube className='w-full h-full text-slate-100' />
+              <div
+                className='w-6 h-6 cursor-pointer'
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/company/db-realty-ltd/',
+                    '_blank'
+                  )
+                }
+              >
+                <FaYoutube className='w-full h-full text-slate-100' />
+              </div>
             </div> */}
-            </div>
           </div>
         </div>
         {isModalOpen && <HowWeThinkModal setIsModalOpen={setIsModalOpen} />}

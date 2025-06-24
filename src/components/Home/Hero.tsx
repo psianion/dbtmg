@@ -6,8 +6,6 @@ import 'swiper/css/bundle';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper';
 
-const images = ['/hero/hero1.webp', '/hero/hero1.webp', '/hero/hero1.webp'];
-
 const heroData = [
   {
     id: 1,

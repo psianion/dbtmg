@@ -98,41 +98,57 @@ const Blogs = () => {
         setActiveSection={setActiveSection}
       />
       <div className='flex w-[90%] lg:w-[1080px] justify-end'>
-        <div className='w-full lg:w-[50%] flex flex-col gap-10 mb-10'>
+        <div className='w-full flex flex-col gap-10 mb-10'>
           {news[activeSection].map((item, index) => {
             return (
               <div key={index} className='w-full flex flex-col'>
-                <p className='font-semibold text-[19px] text-red-600'>
-                  {item.year}
-                </p>
-                <div className='flex flex-col gap-8'>
+                <div className='flex items-center w-full gap-4'>
+                  <div className='hidden md:block w-[500px] h-full '></div>
+                  <p className='font-semibold text-[19px] text-red-600 w-[500px]'>
+                    {item.year}
+                  </p>
+                </div>
+                <div className='flex flex-col gap-8 w-full'>
                   {item.data.map((person, index) => {
                     return (
-                      <div key={index} className='flex flex-col gap-1'>
-                        <p className='font-light text-[12px] text-slate-500 uppercase'>
-                          {format(new Date(person.date), 'MMMM dd, yyyy')}
-                        </p>
-                        <p className='font-semibold text-[16px] text-gray-600'>
-                          {person.nameOfPublication}
-                        </p>
-                        <p
-                          onClick={() => navigate('/news/' + person.slug)}
-                          className='font-light text-[24px] text-slate-600 hover:text-red-600 transistion-all duration-300 ease-in-out cursor-pointer'
-                        >
-                          {person.title}
-                        </p>
-                        <p className='font-light text-[12px] text-slate-500 italic'>
-                          {person.author}
-                        </p>
-                        <p className='font-light text-[16px] text-slate-500'>
-                          {person.excerpt}
-                        </p>
-                        <p
-                          onClick={() => navigate('/news/' + person.slug)}
-                          className='font-light text-[12px] text-red-600 uppercase cursor-pointer'
-                        >
-                          Read More
-                        </p>
+                      <div
+                        key={index}
+                        className='w-full flex items-start gap-4'
+                      >
+                        {!person.image ? null : (
+                          <div
+                            style={{
+                              backgroundImage: `url(${person.image})`
+                            }}
+                            className={`hidden md:block w-[500px] h-full bg-center bg-cover bg-no-repeat`}
+                          />
+                        )}
+                        <div className='flex flex-col gap-1 w-[500px]'>
+                          <p className='font-light text-[12px] text-slate-500 uppercase'>
+                            {format(new Date(person.date), 'MMMM dd, yyyy')}
+                          </p>
+                          <p className='font-semibold text-[16px] text-gray-600'>
+                            {person.nameOfPublication}
+                          </p>
+                          <p
+                            onClick={() => navigate('/news/' + person.slug)}
+                            className='font-light text-[24px] text-slate-600 hover:text-red-600 transistion-all duration-300 ease-in-out cursor-pointer'
+                          >
+                            {person.title}
+                          </p>
+                          <p className='font-light text-[12px] text-slate-500 italic'>
+                            {person.author}
+                          </p>
+                          <p className='font-light text-[16px] text-slate-500'>
+                            {person.excerpt}
+                          </p>
+                          <p
+                            onClick={() => navigate('/news/' + person.slug)}
+                            className='font-light text-[12px] text-red-600 uppercase cursor-pointer'
+                          >
+                            Read More
+                          </p>
+                        </div>
                       </div>
                     );
                   })}
