@@ -68,7 +68,7 @@ const HowWeThinkModal = ({
               className='w-[200px] h-[75px] hover:bg-white/60 cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-start bg-cover bg-no-repeat p-8'
             />
             <div className='w-full h-full flex flex-col p-4 text-white mt-10'>
-              <p className='text-[94px] font-[100] leading-[100px] w-[720px]'>
+              <p className='text-[80px] font-[100] leading-[90px] w-[720px]'>
                 {activeData.quote}
               </p>
               <p>- {activeData.quoteAttribution}</p>
