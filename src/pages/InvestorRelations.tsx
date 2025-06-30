@@ -58,11 +58,18 @@ const Investor = () => {
       }, {});
 
       // Extract all available financial years
-      const years = [...new Set(data
-        .filter(item => item.financialYear)
-        .map(item => item.financialYear)
-        .sort((a, b) => b - a) // Sort in descending order
-      )];
+      const years = [
+        ...new Set(
+          data
+            .filter((item) => item.financialYear)
+            .map((item) => item.financialYear)
+            .sort((a, b) => {
+              const aStart = parseInt(a.split('-')[0], 10);
+              const bStart = parseInt(b.split('-')[0], 10);
+              return bStart - aStart; // Descending order
+            })
+        )
+      ];
       setAvailableYears(years);
 
       console.log(groupedData);
@@ -76,13 +83,13 @@ const Investor = () => {
   // Filter documents based on selected year
   const getFilteredDocuments = () => {
     if (!documents[activeSection]) return [];
-    
+
     if (selectedYear === 'All Years') {
       return documents[activeSection];
     }
-    
-    return documents[activeSection].filter(doc => 
-      doc.financialYear === selectedYear
+
+    return documents[activeSection].filter(
+      (doc) => doc.financialYear === selectedYear
     );
   };
 
@@ -100,7 +107,7 @@ const Investor = () => {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      
+
       {/* Financial Year Filter Dropdown */}
       {availableYears.length > 0 && (
         <div className='w-[90%] lg:w-[1080px] mb-6'>
@@ -114,7 +121,7 @@ const Investor = () => {
                 onChange={(e) => setSelectedYear(e.target.value)}
                 className='appearance-none px-4 py-2 pr-10 border border-slate-300 rounded-md text-sm bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 cursor-pointer hover:border-slate-400 transition-colors duration-200'
               >
-                <option value="All Years">All Years</option>
+                <option value='All Years'>All Years</option>
                 {availableYears.map((year) => (
                   <option key={year} value={year}>
                     {year}
@@ -122,15 +129,25 @@ const Investor = () => {
                 ))}
               </select>
               <div className='absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none'>
-                <svg className='w-4 h-4 text-slate-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 9l-7 7-7-7' />
+                <svg
+                  className='w-4 h-4 text-slate-400'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M19 9l-7 7-7-7'
+                  />
                 </svg>
               </div>
             </div>
           </div>
         </div>
       )}
-      
+
       {documents && documents[activeSection].length ? (
         <InvestorSections
           section={getFilteredDocuments()}
