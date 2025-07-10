@@ -48,7 +48,7 @@ const RelationshipsHeading = () => {
     {
       name: 'Financial Partners.',
       description:
-        'Valor collaborates with equity and debt investors to ensure project capitalization aligns with market conditions, delivering superior financial performance while enhancing the quality of the environment for tenants and the communities in which it operates.',
+        'Valor collaborates closely with both equity and debt investors to ensure optimal project capitalization in line with prevailing market dynamics. This strategic approach drives superior financial outcomes while also elevating the quality of life for tenants and contributing positively to surrounding communities. Notable financial partners include Axis Bank, Yes Bank, JC Flowers, Edelweiss, and Kotak Mahindra Bank.',
       images:
         media?.find((item) => item.name === 'Financial Partners')?.images || [],
       names: 0,
@@ -57,7 +57,7 @@ const RelationshipsHeading = () => {
     {
       name: 'Government Partners.',
       description:
-        'Valor has worked across five or more cities in every major county neighborhood of the Mumbai Metropolitan Region. We collaborate with local government partners to develop projects that address specific development challenges and meet the unique needs of each community.',
+        'Valor has executed projects across five or more cities within every major county neighborhood of the Mumbai Metropolitan Region. Our approach emphasizes close collaboration with local government bodies to address complex development challenges and respond to the distinct needs of each community we serve. We are proud to partner with key public sector agencies including the Maharashtra Housing and Area Development Authority (MHADA), Slum Rehabilitation Authority (SRA), City and Industrial Development Corporation of Maharashtra Ltd. (CIDCO), Delhi Development Authority (DDA), and the Government of Maharashtra.',
       images:
         media?.find((item) => item.name === 'Government Partners')?.images ||
         [],
@@ -67,7 +67,7 @@ const RelationshipsHeading = () => {
     {
       name: 'Development Partners.',
       description:
-        'Valor’s joint development partners include some of the largest developers and financial institutions in the country.',
+        "Valor partners with some of India's leading real estate developers and financial institutions to drive high-impact joint ventures. These collaborations have consistently delivered superior investment returns for our equity capital partners while setting new benchmarks in project execution and value creation. Our esteemed partners include Prestige Estates Projects Ltd., Godrej Properties Ltd., L&T Realty, and Macrotech Developers Ltd. (Lodha).",
       images:
         media?.find((item) => item.name === 'Development Partners')?.images ||
         [],

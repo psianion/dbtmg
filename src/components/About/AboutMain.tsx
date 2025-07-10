@@ -24,7 +24,7 @@ const data = [
   },
   {
     heading: 'Institutional Partners and Superior Returns.',
-    text: "DB Realty's successful development ventures have resulted in consistently superior investment returns for our equity capital partners. Our business partnerships include Prestige Estates, Godrej Properties, L&T Realty, Lodha Group, Kotak Mahindra Bank , JC Flowers among others. The Times of India and other major publications have ranked DB Realty among the top Real Estate Developers in Mumbai and has acknowledged DB Realty for many award-winning development projects."
+    text: "DB Realty's successful development ventures have resulted in consistently superior investment returns for our equity capital partners. Our business partnerships include Prestige Estates Projects Ltd., Godrej Properties Ltd., Larsen & Toubro Ltd. and Macrotech Developers Ltd. The Times of India and other major publications have ranked DB Realty among the top Real Estate Developers in Mumbai and has acknowledged DB Realty for many award-winning development projects."
   }
 ];
 
