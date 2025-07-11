@@ -152,20 +152,15 @@ const RecentProjectsSection = () => {
             </div>
           ))}
         </div>
-        <div className='flex flex-col gap-2'>
-          <p className='w-full lg:w-[500px] text-md lg:text-sm font-light text-slate-600 leading-4.5'>
-            DB Realty's successful development ventures have resulted in
-            consistently superior investment returns for our equity capital
-            partners. Our business partnerships include Prestige Estates
-            Projects Ltd., Godrej Properties Ltd., Larsen & Toubro Ltd. and
-            Macrotech Developers Ltd.
-          </p>
-          <p className='w-full lg:w-[500px] text-md lg:text-sm font-light text-slate-600 leading-4.5'>
-            The Times of India and other major publications have ranked DB
-            Realty among the top Real Estate Developers in Mumbai and has
-            acknowledged DB Realty for many award-winning development projects.
-          </p>
-        </div>
+        <p className='w-full lg:w-[500px] text-md lg:text-sm font-light text-slate-600 leading-4.5'>
+          DB Realty (NSE: DB Realty) is a full service development company
+          focusing on large scale, urban regeneration projects in the Mumbai
+          Metropolitan Region. Our exclusive focus on brownfield development and
+          on this region helps us understand the nuances of market trends and
+          timing. Our relationships and technical knowledge give us an edge in
+          developing iconic properties in challenging land and regulatory
+          regimes.
+        </p>
       </div>
       {activeSection === 'Mumbai Experience Map' && (
         <div className='w-full h-[680px]'>
