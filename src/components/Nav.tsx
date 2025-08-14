@@ -73,7 +73,7 @@ const NavMobile = () => {
               Philanthropy
             </div>
             <div
-              onClick={() => handleNavigation('/investor-relations')}
+              onClick={() => window.location.href = 'https://old.dbrealty.co.in/investor-relations.php'}
               className={defaultStyle}
             >
               Investor Relations
@@ -203,7 +203,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
             </div>
             <div
               className={cn(defaultStyle)}
-              onClick={() => handleNavigation('/investor-relations')}
+              onClick={() => window.location.href = 'https://old.dbrealty.co.in/investor-relations.php'}
             >
               Investor Relations
             </div>
