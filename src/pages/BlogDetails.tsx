@@ -72,8 +72,6 @@ const BlogDetails = () => {
         hyperlink: data.hyperlink || "",
       };
 
-      console.log(mapped, "map");
-
       setDetails(mapped);
     } catch (error) {
       console.error("Unexpected error fetching news detail:", error);

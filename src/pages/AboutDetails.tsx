@@ -55,8 +55,6 @@ const AboutDetails = () => {
         image: data.profileImage,
       };
 
-      console.log(mapped, "map");
-
       setDetails(mapped);
     } catch (error) {
       console.error("Unexpected error in fetchAboutDetails:", error);
