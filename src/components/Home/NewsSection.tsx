@@ -34,7 +34,6 @@ const NewsSection = () => {
           hyperlink: item.hyperlink || "",
           toBeFeaturedOnHomePage: item.featuredOnHomePage || false,
         })) || [];
-
       const filteredData = mapped.filter((item) => item.toBeFeaturedOnHomePage);
 
       const sortedData = filteredData.sort(
@@ -80,6 +79,7 @@ const NewsSection = () => {
   useEffect(() => {
     fetchNews();
   }, []);
+
   return (
     <div className="w-[90%] lg:w-[1080px] flex flex-col mb-20 gap-6 ">
       <h5 className="border-l-6 h-[30px] flex items-center border-solid border-red-700 text-red-700 pl-4 font-semibold text-xl">
@@ -90,6 +90,7 @@ const NewsSection = () => {
           news.map((el, index) => (
             <div
               key={index}
+              onClick={() => window.open(`/news/${el.slug}`, "_self")}
               className="flex flex-col gap-2 w-full lg:w-[33%] text-slate-600 hover:text-red-700 cursor-pointer"
             >
               <div

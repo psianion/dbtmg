@@ -178,14 +178,15 @@ const RelationshipsHeading = () => {
             <p className="text-lg font-semibold ">{item.name}</p>
             <p className="text-sm font-light leading-5">{item.description}</p>
             <div className="flex gap-4 flex-wrap justify-center">
-              {item.images.map((_, index) => (
-                <div
-                  style={{
-                    backgroundImage: `url(${item.images[index]})`,
-                  }}
-                  className="w-[180px] lg:w-[200px] h-[100px] bg-center bg-contain bg-no-repeat"
-                />
-              ))}
+              {item.name === "Professional Affiliations." &&
+                item.images.map((_, index) => (
+                  <div
+                    style={{
+                      backgroundImage: `url(${item.images[index]})`,
+                    }}
+                    className="w-[180px] lg:w-[200px] h-[100px] bg-center bg-contain bg-no-repeat"
+                  />
+                ))}
             </div>
             {/* <div className='flex flex-wrap'>
               {[...Array(item.names)].map((_, index) => (
