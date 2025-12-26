@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 const DashboardLayout = lazy(() => import("./pages/dashboard/_layout"));
 const DashboardHome = lazy(() => import("./pages/dashboard/index"));
+const BoardMembersPage = lazy(() => import("./pages/dashboard/board-members"));
 // Lazy load pages
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: withSuspense(DashboardHome),
+      },
+      {
+        path: "board-members",
+        element: withSuspense(BoardMembersPage),
       },
     ],
   },
