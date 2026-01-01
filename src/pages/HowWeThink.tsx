@@ -12,6 +12,7 @@ const HowWeThinkModal = ({
   const [data, setData] = useState(null);
   const [activeData, setActiveData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [imageCache, setImageCache] = useState({});
 
   const navigate = useNavigate();
   const handleNavigation = (path: string) => {
@@ -42,6 +43,9 @@ const HowWeThinkModal = ({
 
       setData(sortedData);
       setActiveData(sortedData[0]);
+
+      // Preload all images
+      preloadImages(sortedData);
       setLoading(false);
     } catch (error) {
       console.error("Unexpected error in fetchHWT:", error);
@@ -72,6 +76,18 @@ const HowWeThinkModal = ({
   //   }
   // };
 
+  const preloadImages = (items) => {
+    const cache = {};
+    items.forEach((item) => {
+      if (item.image) {
+        const img = new Image();
+        img.src = item.image;
+        cache[item.image] = item.image;
+      }
+    });
+    setImageCache(cache);
+  };
+
   useEffect(() => {
     fetchHWT();
   }, []);
@@ -87,6 +103,7 @@ const HowWeThinkModal = ({
         <div
           style={{
             backgroundImage: `url(${activeData.image})`,
+            backgroundAttachment: "fixed",
           }}
           className="w-full h-screen p-6 flex justify-center bg-cover bg-center bg-no-repeat"
         >
