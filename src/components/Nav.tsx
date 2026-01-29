@@ -27,7 +27,7 @@ const NavMobile = () => {
         <div className='flex items-start justify-between w-full'>
           <div
             onClick={() => handleNavigation('/')}
-            className='w-[150px] h-[50px] cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat'
+            className='w-[160px] h-[50px] cursor-pointer bg-[url(/DB_LOGO.webp)] bg-center bg-cover bg-no-repeat'
           ></div>
           <div
             className='w-10 h-10 flex items-center justify-center bg-white'
@@ -171,7 +171,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
         <div className='w-[1080px] flex justify-center  mx-auto min-h-20 gap-1 absolute top-6 left-1/2 -translate-x-1/2 z-10'>
           <div
             onClick={() => handleNavigation('/')}
-            className='w-[200px] h-[75px] bg-white hover:bg-white/60 cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-start bg-cover bg-no-repeat p-4'
+            className='w-[200px] h-[60px] bg-white hover:bg-white/60 cursor-pointer  bg-[url(/DB_LOGO.webp)] bg-start bg-cover bg-no-repeat p-4'
           ></div>
           <div
             onClick={() => handleNavigation('/about')}
