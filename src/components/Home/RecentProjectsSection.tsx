@@ -180,7 +180,7 @@ const RecentProjectsSection = () => {
           ))}
         </div>
         <p className="w-full lg:w-[500px] text-md lg:text-sm font-light text-slate-600 leading-4.5">
-          DB Realty (NSE: DB Realty) is a full service development company
+          Valor Estate (NSE: DB Realty) is a full service development company
           focusing on large scale, urban regeneration projects in the Mumbai
           Metropolitan Region. Our exclusive focus on brownfield development and
           on this region helps us understand the nuances of market trends and
