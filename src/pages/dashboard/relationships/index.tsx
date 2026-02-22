@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-
-import { BoardMemberForm } from "./form";
-import { BoardMember } from "@/types/cms";
+import { RelationshipForm } from "./form";
+import { Relationship } from "@/types/cms";
 import { DataTable } from "@/components/Dashboard/DataTable/DataTable";
 import { ConfirmDeleteDialog } from "@/components/Dashboard/modals/ConfirmDeleteDialog";
 import { FormModal } from "@/components/Dashboard/modals/FormModal";
 import { supabase } from "@/lib/supabase-client";
-import { columns } from "./column";
-import { BoardMemberFormValues } from "./schema";
+import { columns } from "./columns";
+import { RelationshipFormValues } from "./schema";
 
-export default function BoardMembersPage() {
-  const [data, setData] = useState<BoardMember[]>([]);
+export default function RelationshipsPage() {
+  const [data, setData] = useState<Relationship[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<BoardMember | null>(null);
+  const [selected, setSelected] = useState<Relationship | null>(null);
   const [isFormOpen, setFormOpen] = useState(false);
   const [isDeleteOpen, setDeleteOpen] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -21,38 +20,28 @@ export default function BoardMembersPage() {
   const fetchData = async () => {
     setLoading(true);
     const { data, error } = await supabase
-      .from("board_members")
+      .from("relationships")
       .select("*")
-      .order("rank", { ascending: true });
-    if (error) toast.error("Failed to load board members.");
-    else setData((data as BoardMember[]) ?? []);
+      .order("name", { ascending: true });
+    if (error) toast.error("Failed to load relationships.");
+    else setData((data as Relationship[]) ?? []);
     setLoading(false);
   };
 
   useEffect(() => { fetchData(); }, []);
 
-  const handleSubmit = async (values: BoardMemberFormValues) => {
+  const handleSubmit = async (values: RelationshipFormValues) => {
     setSaving(true);
-    const payload = {
-      rank: values.rank,
-      name: values.name,
-      designation: values.designation,
-      category: values.category,
-      shortBiography: values.shortBiography,
-      profileImage: values.profileImage,
-    };
+    const payload = { name: values.name, images: values.images };
 
     if (selected?.id) {
-      const { error } = await supabase
-        .from("board_members")
-        .update(payload)
-        .eq("id", selected.id);
+      const { error } = await supabase.from("relationships").update(payload).eq("id", selected.id);
       if (error) { toast.error("Failed to update."); setSaving(false); return; }
-      toast.success("Board member updated.");
+      toast.success("Relationship updated.");
     } else {
-      const { error } = await supabase.from("board_members").insert(payload);
+      const { error } = await supabase.from("relationships").insert(payload);
       if (error) { toast.error("Failed to create."); setSaving(false); return; }
-      toast.success("Board member added.");
+      toast.success("Relationship added.");
     }
     setSaving(false);
     setFormOpen(false);
@@ -61,24 +50,21 @@ export default function BoardMembersPage() {
 
   const handleDelete = async () => {
     if (!selected?.id) return;
-    const { error } = await supabase
-      .from("board_members")
-      .delete()
-      .eq("id", selected.id);
+    const { error } = await supabase.from("relationships").delete().eq("id", selected.id);
     if (error) toast.error("Failed to delete.");
-    else { toast.success("Board member deleted."); fetchData(); }
+    else { toast.success("Relationship deleted."); fetchData(); }
     setDeleteOpen(false);
   };
 
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Board Members</h1>
+        <h1 className="text-2xl font-semibold">Relationships</h1>
         <button
           className="rounded-md bg-primary px-4 py-2 text-sm text-white"
           onClick={() => { setSelected(null); setFormOpen(true); }}
         >
-          Add Member
+          Add Group
         </button>
       </div>
 
@@ -87,19 +73,19 @@ export default function BoardMembersPage() {
         columns={columns}
         getRowId={(row) => row.id}
         loading={loading}
-        searchKeys={["name", "designation", "category"]}
-        searchPlaceholder="Search members…"
+        searchKeys={["name"]}
+        searchPlaceholder="Search relationships…"
         onEdit={(row) => { setSelected(row); setFormOpen(true); }}
         onDelete={(row) => { setSelected(row); setDeleteOpen(true); }}
-        emptyMessage="No board members found."
+        emptyMessage="No relationship groups found."
       />
 
       <FormModal
         open={isFormOpen}
-        title={selected ? "Edit Board Member" : "Add Board Member"}
+        title={selected ? "Edit Relationship" : "Add Relationship"}
         onClose={() => setFormOpen(false)}
       >
-        <BoardMemberForm
+        <RelationshipForm
           defaultValues={selected ?? undefined}
           onSubmit={handleSubmit}
           isSubmitting={saving}
@@ -108,8 +94,8 @@ export default function BoardMembersPage() {
 
       <ConfirmDeleteDialog
         open={isDeleteOpen}
-        title="Delete Board Member?"
-        description={`Are you sure you want to delete "${selected?.name}"? This cannot be undone.`}
+        title="Delete Relationship?"
+        description={`Are you sure you want to delete "${selected?.name}"?`}
         onCancel={() => setDeleteOpen(false)}
         onConfirm={handleDelete}
       />

@@ -3,7 +3,23 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 const DashboardLayout = lazy(() => import("./pages/dashboard/_layout"));
 const DashboardHome = lazy(() => import("./pages/dashboard/index"));
-const BoardMembersPage = lazy(() => import("./pages/dashboard/board-members"));
+const BoardMembersPage = lazy(
+  () => import("./pages/dashboard/board-members/index")
+);
+const ExecutiveProfilesPage = lazy(
+  () => import("./pages/dashboard/executive-profiles/index")
+);
+const ProjectsPage = lazy(() => import("./pages/dashboard/projects/index"));
+const NewsAwardsPage = lazy(
+  () => import("./pages/dashboard/news-awards/index")
+);
+const HowWeThinkPage = lazy(
+  () => import("./pages/dashboard/how-we-think/index")
+);
+const RelationshipsPage = lazy(
+  () => import("./pages/dashboard/relationships/index")
+);
+
 // Lazy load pages
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -18,6 +34,8 @@ const Investor = lazy(() => import("./pages/InvestorRelations"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 
+const cmsEnabled = import.meta.env.VITE_CMS_ENABLED === "true";
+
 // Wrapper to apply Suspense to each route element
 const withSuspense = (
   Component: React.LazyExoticComponent<() => JSX.Element>
@@ -26,6 +44,30 @@ const withSuspense = (
     <Component />
   </Suspense>
 );
+
+const dashboardRoutes = cmsEnabled
+  ? [
+      {
+        path: "/dashboard",
+        element: withSuspense(DashboardLayout),
+        children: [
+          { index: true, element: withSuspense(DashboardHome) },
+          { path: "board-members", element: withSuspense(BoardMembersPage) },
+          {
+            path: "executive-profiles",
+            element: withSuspense(ExecutiveProfilesPage),
+          },
+          { path: "projects", element: withSuspense(ProjectsPage) },
+          { path: "news-awards", element: withSuspense(NewsAwardsPage) },
+          { path: "how-we-think", element: withSuspense(HowWeThinkPage) },
+          { path: "relationships", element: withSuspense(RelationshipsPage) },
+        ],
+      },
+    ]
+  : [
+      { path: "/dashboard", element: <Navigate to="/" replace /> },
+      { path: "/dashboard/*", element: <Navigate to="/" replace /> },
+    ];
 
 const router = createBrowserRouter([
   { path: "/", element: withSuspense(Home) },
@@ -43,21 +85,7 @@ const router = createBrowserRouter([
   { path: "*", element: <Navigate to="/" replace /> },
 
   /* ---------------- DASHBOARD ROUTES ---------------- */
-
-  {
-    path: "/dashboard",
-    element: withSuspense(DashboardLayout),
-    children: [
-      {
-        index: true,
-        element: withSuspense(DashboardHome),
-      },
-      {
-        path: "board-members",
-        element: withSuspense(BoardMembersPage),
-      },
-    ],
-  },
+  ...dashboardRoutes,
 ]);
 
 export default router;

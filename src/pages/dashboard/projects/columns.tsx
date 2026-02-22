@@ -1,8 +1,8 @@
 import { Column } from "@/components/Dashboard/DataTable/types";
-import { ExecutiveProfile } from "@/types/cms";
+import { Project } from "@/types/cms";
 import { Badge } from "@/components/ui/badge";
 
-export const columns: Column<ExecutiveProfile>[] = [
+export const columns: Column<Project>[] = [
   {
     key: "rank",
     header: "Rank",
@@ -14,30 +14,31 @@ export const columns: Column<ExecutiveProfile>[] = [
     ),
   },
   {
-    key: "profileImage",
+    key: "images",
     header: "Image",
     width: "80px",
     render: (row) =>
-      row.profileImage ? (
+      row.images?.[0] ? (
         <img
-          src={row.profileImage}
+          src={row.images[0]}
           alt={row.name}
-          className="h-10 w-10 rounded-lg object-cover border"
+          className="h-10 w-16 rounded-lg object-cover border"
         />
       ) : (
-        <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground">
-          N/A
-        </div>
+        <div className="h-10 w-16 rounded-lg bg-muted" />
       ),
   },
   { key: "name", header: "Name" },
-  { key: "designation", header: "Designation" },
+  { key: "city", header: "City" },
   {
-    key: "teamName",
-    header: "Team",
-    render: (row) => (
-      <Badge variant="secondary">{row.teamName}</Badge>
-    ),
+    key: "is_signature",
+    header: "Signature",
+    render: (row) =>
+      row.is_signature ? (
+        <Badge variant="default">Signature</Badge>
+      ) : (
+        <Badge variant="outline">Standard</Badge>
+      ),
   },
   { key: "slug", header: "Slug" },
 ];
