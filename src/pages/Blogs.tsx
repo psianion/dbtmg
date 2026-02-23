@@ -36,19 +36,23 @@ const Blogs = () => {
         return;
       }
 
-      const mapped = data.map((item) => ({
-        title: item.title || "",
-        year: item.year || 2025,
-        nameOfPublication: item.publication || "",
-        itemType: item.itemType || "",
-        image: item.mediaUrl || "",
-        excerpt: item.excerpt || "",
-        date: item.date || "",
-        slug: item.slug || "",
-        text: item.detailText || "",
-        author: item.author || "",
-        hyperlink: item.hyperlink || "",
-      }));
+      const mapped = data.map((item) => {
+        const extraImages = Array.isArray(item.images) ? item.images : [];
+        const thumbnail = item.mediaUrl || extraImages[0] || "";
+        return {
+          title: item.title || "",
+          year: item.year || 2025,
+          nameOfPublication: item.publication || "",
+          itemType: item.itemType || "",
+          image: thumbnail,
+          excerpt: item.excerpt || "",
+          date: item.date || "",
+          slug: item.slug || "",
+          text: item.detailText || "",
+          author: item.author || "",
+          hyperlink: item.hyperlink || "",
+        };
+      });
 
       // group by itemType
       const groupedData = mapped.reduce((acc, person) => {
