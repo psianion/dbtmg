@@ -82,10 +82,10 @@ const router = createBrowserRouter([
   { path: "/news/:slug", element: withSuspense(BlogDetails) },
   { path: "/investor-relations", element: withSuspense(Investor) },
   { path: "/terms-of-use", element: withSuspense(TermsOfUse) },
-  { path: "*", element: <Navigate to="/" replace /> },
-
   /* ---------------- DASHBOARD ROUTES ---------------- */
   ...dashboardRoutes,
+
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);
 
 export default router;

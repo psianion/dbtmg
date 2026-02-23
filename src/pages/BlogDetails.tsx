@@ -64,6 +64,7 @@ const BlogDetails = () => {
         nameOfPublication: data.publication || "",
         itemType: data.itemType || "",
         image: data.mediaUrl || "",
+        images: Array.isArray(data.images) ? data.images : [],
         excerpt: data.excerpt || "",
         date: data.date || "",
         slug: data.slug || "",
@@ -141,14 +142,19 @@ const BlogDetails = () => {
               ></iframe>
             </div>
           )}
-          {!details.image ? (
-            <div className="w-[50%]">Image Placeholder</div>
-          ) : (
+          {details.image && (
             <div
               style={{ backgroundImage: `url(${details.image})` }}
-              className="w-[50%] max-w-[400px] max-h-[300px] bg-cover bg-center bg-no-repeat"
+              className="w-full max-w-[400px] h-[300px] bg-cover bg-center bg-no-repeat"
             />
           )}
+          {details.images.map((imgUrl, i) => (
+            <div
+              key={i}
+              style={{ backgroundImage: `url(${imgUrl})` }}
+              className="w-full max-w-[400px] h-[300px] bg-cover bg-center bg-no-repeat mt-4"
+            />
+          ))}
         </div>
 
         <div className="w-full lg:w-[50%] flex flex-col gap-10 mb-10">
