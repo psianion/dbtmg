@@ -10,5 +10,14 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  server: {
+    proxy: {
+      '/supabase-proxy': {
+        target: 'https://xzoqcvkqdnyromkuezep.supabase.co',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/supabase-proxy/, '')
+      }
+    }
   }
 });
