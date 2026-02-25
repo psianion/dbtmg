@@ -63,7 +63,6 @@ const BlogDetails = () => {
         year: data.year || 2025,
         nameOfPublication: data.publication || "",
         itemType: data.itemType || "",
-        image: data.mediaUrl || "",
         images: Array.isArray(data.images) ? data.images : [],
         excerpt: data.excerpt || "",
         date: data.date || "",
@@ -141,12 +140,6 @@ const BlogDetails = () => {
                 className="rounded-lg w-full max-w-[400px] aspect-video"
               ></iframe>
             </div>
-          )}
-          {details.image && (
-            <div
-              style={{ backgroundImage: `url(${details.image})` }}
-              className="w-full max-w-[400px] h-[300px] bg-cover bg-center bg-no-repeat"
-            />
           )}
           {details.images.map((imgUrl, i) => (
             <div
