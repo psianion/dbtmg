@@ -51,7 +51,7 @@ export interface NewsAward {
   itemType: string;
   excerpt?: string;
   detailText?: string;
-  mediaUrl?: string;
+  images?: string[];
   hyperlink?: string;
   featuredOnHomePage?: boolean;
   createdAt?: string;

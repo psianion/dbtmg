@@ -10,7 +10,7 @@ export const newsAwardSchema = z.object({
   itemType: z.string().min(1, "Type is required"),
   excerpt: z.string(),
   detailText: z.string(),
-  mediaUrl: z.string(),
+  images: z.array(z.string()).default([]),
   hyperlink: z.string(),
   featuredOnHomePage: z.boolean(),
 });
