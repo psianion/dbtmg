@@ -47,7 +47,7 @@ export default function NewsAwardsPage() {
       itemType: values.itemType,
       excerpt: values.excerpt,
       detailText: values.detailText,
-      mediaUrl: values.mediaUrl,
+      images: values.images,
       hyperlink: values.hyperlink,
       featuredOnHomePage: values.featuredOnHomePage,
     };
