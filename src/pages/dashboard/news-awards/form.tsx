@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ImageUpload } from "@/components/Dashboard/ImageUpload";
+import { MultiImageUpload } from "@/components/Dashboard/MultiImageUpload";
 import { MarkdownField } from "@/components/Dashboard/MarkdownField";
 import { NewsAwardFormValues, newsAwardSchema } from "./schema";
 
@@ -24,7 +24,7 @@ function toSlug(title: string) {
 }
 
 interface Props {
-  defaultValues?: Partial<NewsAwardFormValues>;
+  defaultValues?: Partial<NewsAwardFormValues> & { mediaUrl?: string };
   onSubmit: (values: NewsAwardFormValues) => void;
   isSubmitting?: boolean;
 }
@@ -42,7 +42,11 @@ export function NewsAwardForm({ defaultValues, onSubmit, isSubmitting }: Props) 
       itemType: defaultValues?.itemType ?? "",
       excerpt: defaultValues?.excerpt ?? "",
       detailText: defaultValues?.detailText ?? "",
-      mediaUrl: defaultValues?.mediaUrl ?? "",
+      images: defaultValues?.images?.length
+        ? defaultValues.images
+        : defaultValues?.mediaUrl
+          ? [defaultValues.mediaUrl]
+          : [],
       hyperlink: defaultValues?.hyperlink ?? "",
       featuredOnHomePage: defaultValues?.featuredOnHomePage ?? false,
     },
@@ -135,12 +139,12 @@ export function NewsAwardForm({ defaultValues, onSubmit, isSubmitting }: Props) 
       </div>
 
       <div className="space-y-1">
-        <Label>Media Image</Label>
+        <Label>Images</Label>
         <Controller
           control={form.control}
-          name="mediaUrl"
+          name="images"
           render={({ field }) => (
-            <ImageUpload value={field.value} onChange={field.onChange} folder="news-awards" />
+            <MultiImageUpload value={field.value} onChange={field.onChange} folder="news-awards" />
           )}
         />
       </div>
