@@ -16,6 +16,12 @@ dist-ssr
 # Worktrees
 .worktrees
 
+# Claude
+CLAUDE.md
+.playwright-mcp
+docs
+.mcp.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

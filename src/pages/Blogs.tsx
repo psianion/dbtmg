@@ -38,7 +38,7 @@ const Blogs = () => {
 
       const mapped = data.map((item) => {
         const extraImages = Array.isArray(item.images) ? item.images : [];
-        const thumbnail = item.mediaUrl || extraImages[0] || "";
+        const thumbnail = extraImages[0] || item.mediaUrl || "";
         return {
           title: item.title || "",
           year: item.year || 2025,

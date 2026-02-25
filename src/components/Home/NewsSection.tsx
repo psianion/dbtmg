@@ -25,7 +25,7 @@ const NewsSection = () => {
           year: item.year || 2025,
           nameOfPublication: item.publication || "",
           itemType: item.itemType || "",
-          image: item.mediaUrl || "",
+          image: (Array.isArray(item.images) && item.images[0]) || item.mediaUrl || "",
           excerpt: item.excerpt || "",
           date: item.date || "",
           slug: item.slug || "",

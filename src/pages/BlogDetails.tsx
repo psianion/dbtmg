@@ -158,7 +158,10 @@ const BlogDetails = () => {
             <p className="font-semibold text-[16px] text-gray-600">
               {details.nameOfPublication}
             </p>
-            <p className="font-light text-[24px] text-slate-600 hover:text-red-600 transistion-all duration-300 ease-in-out cursor-pointer">
+            <p
+              onClick={() => details.hyperlink && window.open(details.hyperlink, "_blank")}
+              className={`font-light text-[24px] text-slate-600 hover:text-red-600 transistion-all duration-300 ease-in-out ${details.hyperlink ? "cursor-pointer" : ""}`}
+            >
               {details.title}
             </p>
             <p className="font-light text-[12px] text-slate-500 italic">
