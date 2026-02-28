@@ -15,8 +15,8 @@ const NewsHeading = ({
       <h1 className="text-6xl lg:text-8xl text-slate-600 font-thin my-6">
         News & Awards.
       </h1>
-      <div className="w-full flex flex-col-reverse lg:flex-row gap-5 justify-between">
-        <div className="flex flex-col gap-1">
+      <div className="w-full flex flex-col-reverse lg:flex-row gap-4">
+        <div className="flex flex-col gap-1 lg:w-[500px]">
           {sections.map((section) => (
             <div
               onClick={() => setActiveSection?.(section)}
@@ -31,7 +31,7 @@ const NewsHeading = ({
             </div>
           ))}
         </div>
-        <p className="w-full lg:w-1/2 text-right text-sm font-light text-red-600 leading-4 uppercase">
+        <p className="w-full lg:flex-1 text-right text-sm font-light text-red-600 leading-4 uppercase">
           Valor has won{" "}
           <b className="font-semibold">awards for many projects</b> including
           honors for “Best Mixed Use,” “Best Office,” and “Best Historic
