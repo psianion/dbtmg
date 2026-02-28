@@ -31,7 +31,7 @@ const NewsHeading = ({
             </div>
           ))}
         </div>
-        <p className="w-[400px] text-right text-sm font-light text-red-600 leading-4 uppercase">
+        <p className="w-full lg:w-1/2 text-right text-sm font-light text-red-600 leading-4 uppercase">
           Valor has won{" "}
           <b className="font-semibold">awards for many projects</b> including
           honors for “Best Mixed Use,” “Best Office,” and “Best Historic

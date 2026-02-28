@@ -150,7 +150,7 @@ const BlogDetails = () => {
           ))}
         </div>
 
-        <div className="w-full lg:w-[50%] flex flex-col gap-10 mb-10 text-right">
+        <div className="w-full lg:w-[50%] flex flex-col gap-10 mb-10">
           <div className="flex flex-col gap-1">
             <p className="font-light text-[12px] text-slate-500 uppercase">
               {format(new Date(details.date), "MMMM dd, yyyy")}
