@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase-client";
 
 const Blogs = () => {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState<Record<string, { year: string; data: unknown[] }[]>>({});
   const [activeSection, setActiveSection] = React.useState("In the News");
   const [loading, setLoading] = useState(true);
   const teams = ["In the News", "Press Release", "Video Coverage", "Awards"];
@@ -31,7 +31,6 @@ const Blogs = () => {
       }
 
       if (!data) {
-        setNews({});
         setLoading(false);
         return;
       }
@@ -182,7 +181,7 @@ const Blogs = () => {
       />
       <div className="flex w-[90%] lg:w-[1080px] justify-end">
         <div className="w-full flex flex-col gap-10 mb-10">
-          {news[activeSection].map((item, index) => {
+          {(news[activeSection] ?? []).map((item, index) => {
             return (
               <div key={index} className="w-full flex flex-col">
                 <div className="flex items-center w-full gap-4">
