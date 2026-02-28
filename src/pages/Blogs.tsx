@@ -186,7 +186,7 @@ const Blogs = () => {
               <div key={index} className="w-full flex flex-col">
                 <div className="flex items-center w-full gap-4">
                   <div className="hidden md:block w-[500px] h-full "></div>
-                  <p className="font-semibold text-[19px] text-red-600 w-[500px]">
+                  <p className="font-semibold text-[19px] text-red-600 w-[500px] text-right">
                     {item.year}
                   </p>
                 </div>
@@ -205,7 +205,7 @@ const Blogs = () => {
                             className={`hidden md:block w-[500px] h-full bg-center bg-cover bg-no-repeat`}
                           />
                         )}
-                        <div className="flex flex-col gap-1 w-[500px]">
+                        <div className="flex flex-col gap-1 w-[500px] text-right">
                           <p className="font-light text-[12px] text-slate-500 uppercase">
                             {format(new Date(person.date), "MMMM dd, yyyy")}
                           </p>
