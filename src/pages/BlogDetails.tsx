@@ -142,10 +142,11 @@ const BlogDetails = () => {
             </div>
           )}
           {details.images.map((imgUrl, i) => (
-            <div
+            <img
               key={i}
-              style={{ backgroundImage: `url(${imgUrl})` }}
-              className="w-full max-w-[400px] h-[300px] bg-cover bg-center bg-no-repeat mt-4"
+              src={imgUrl}
+              alt=""
+              className="w-full max-w-[400px] max-h-[300px] object-contain mt-4"
             />
           ))}
         </div>
