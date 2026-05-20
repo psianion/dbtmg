@@ -75,7 +75,7 @@ const NavMobile = () => {
             <div
               onClick={() =>
                 (window.location.href =
-                  'https://investors.dbrealty.co.in/')
+                    'https://investors.dbrealty.co.in/investor-relations.php')
               }
               className={defaultStyle}
             >
@@ -208,7 +208,7 @@ const Nav = ({ activePage }: { activePage?: string }) => {
               className={cn(defaultStyle)}
               onClick={() =>
                 (window.location.href =
-                  'https://investors.dbrealty.co.in/')
+                  'https://investors.dbrealty.co.in/investor-relations.php')
               }
             >
               Investor Relations
